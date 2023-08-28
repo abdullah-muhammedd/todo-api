@@ -50,20 +50,7 @@ export async function getTags(req: Request, res: Response, next: NextFunction) {
 export async function postTag(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
-        const { error, value } = tagValidationSchema.validate(req.body);
-        if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
-            if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
-            }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.TAG_DATA_VALIDATION_ERROR,
-                ErrorName.TAG_DATA_VALIDATION_ERROR,
-                statusCode
-            );
-        }
-        const tagBody = value;
+        const tagBody = validate(req.body);
         tagBody.userID = userId;
         await tagServices.add(tagBody);
         return res.status(200).json({ message: 'Tag Added Successfully' });
@@ -83,20 +70,7 @@ export async function patchTag(req: Request, res: Response, next: NextFunction) 
     try {
         const userId = res.locals.userId;
         const tagId = req.params.id;
-        const { error, value } = tagValidationSchema.validate(req.body);
-        if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
-            if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
-            }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.TAG_DATA_VALIDATION_ERROR,
-                ErrorName.TAG_DATA_VALIDATION_ERROR,
-                statusCode
-            );
-        }
-        const tagBody = value;
+        const tagBody = validate(req.body);
         const modifiedCount: number = await tagServices.update(tagId, tagBody, userId);
         return res.status(200).json({ message: 'tag Updated Successfully', modifiedCount });
     } catch (error) {
@@ -120,4 +94,22 @@ export async function deletetag(req: Request, res: Response, next: NextFunction)
     } catch (error) {
         return next(error);
     }
+}
+
+// helpers
+function validate(body: any) {
+    const { error, value } = tagValidationSchema.validate(body);
+    if (error) {
+        let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
+        if (error.details[0].type === 'any.required') {
+            statusCode = ErrorStatusCode.BAD_REQUEST;
+        }
+        throw new ValidationError(
+            error.message,
+            ErrorCode.TAG_DATA_VALIDATION_ERROR,
+            ErrorName.TAG_DATA_VALIDATION_ERROR,
+            statusCode
+        );
+    }
+    return value;
 }

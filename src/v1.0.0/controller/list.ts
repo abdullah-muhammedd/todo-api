@@ -50,20 +50,7 @@ export async function getLists(req: Request, res: Response, next: NextFunction) 
 export async function postList(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
-        const { error, value } = listValidationSchema.validate(req.body);
-        if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
-            if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
-            }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.LIST_DATA_VALIDATION_ERROR,
-                ErrorName.LIST_DATA_VALIDATION_ERROR,
-                statusCode
-            );
-        }
-        const listBody = value;
+        const listBody = validate(req.body);
         listBody.userID = userId;
         await listServices.add(listBody);
         return res.status(200).json({ message: 'List Added Successfully' });
@@ -83,20 +70,7 @@ export async function patchList(req: Request, res: Response, next: NextFunction)
     try {
         const userId = res.locals.userId;
         const listId = req.params.id;
-        const { error, value } = listValidationSchema.validate(req.body);
-        if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
-            if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
-            }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.LIST_DATA_VALIDATION_ERROR,
-                ErrorName.LIST_DATA_VALIDATION_ERROR,
-                statusCode
-            );
-        }
-        const listBody = value;
+        const listBody = validate(req.body);
         const modifiedCount: number = await listServices.update(listId, listBody, userId);
         return res.status(200).json({ message: 'List Updated Successfully', modifiedCount });
     } catch (error) {
@@ -120,4 +94,22 @@ export async function deleteList(req: Request, res: Response, next: NextFunction
     } catch (error) {
         return next(error);
     }
+}
+
+// helpers
+function validate(body: any) {
+    const { error, value } = listValidationSchema.validate(body);
+    if (error) {
+        let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
+        if (error.details[0].type === 'any.required') {
+            statusCode = ErrorStatusCode.BAD_REQUEST;
+        }
+        throw new ValidationError(
+            error.message,
+            ErrorCode.LIST_DATA_VALIDATION_ERROR,
+            ErrorName.LIST_DATA_VALIDATION_ERROR,
+            statusCode
+        );
+    }
+    return value;
 }
