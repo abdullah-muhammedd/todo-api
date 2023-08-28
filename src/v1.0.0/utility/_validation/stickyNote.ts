@@ -24,8 +24,11 @@ export const sticyNoteValidation = joi.object({
      * @description The color should be in hexadecimal format.
      * @messages {'string.hex': 'Not Valid Color, Required Hexadecimal Format', 'string.hexAlign': 'Not Valid Color, Required Hexadecimal Format'}
      */
-    color: joi.string().trim().hex().messages({
-        'string.hex': 'Not Valid Color, Required Hexadecimal Format',
-        'string.hexAlign': 'Not Valid Color, Required Hexadecimal Format'
-    })
+    color: joi
+        .string()
+        .trim()
+        .regex(/^#[A-Fa-f0-9]{6}/)
+        .messages({
+            ' object.regex': 'Not Valid Color, Required Hexadecimal Format'
+        })
 });

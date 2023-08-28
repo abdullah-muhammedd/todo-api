@@ -6,7 +6,7 @@ export interface ITag extends Document {
         ref: string;
     };
     heading: string;
-    color: string;
+    color?: string;
 }
 
 const tagSchema = new Schema<ITag>(
@@ -18,8 +18,7 @@ const tagSchema = new Schema<ITag>(
         },
         heading: {
             type: String,
-            required: [true, 'Tag Heading Is Required'],
-            unique: true
+            required: [true, 'Tag Heading Is Required']
         },
         color: {
             type: String,

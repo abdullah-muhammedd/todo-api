@@ -6,7 +6,7 @@ export interface IStickyNote extends Document {
         ref: string;
     };
     content: string;
-    color: string;
+    color?: string;
 }
 
 const stickyNoteSchema = new Schema<IStickyNote>(
