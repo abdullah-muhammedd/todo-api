@@ -1,10 +1,3 @@
-/**
- * ~ User Router.
- * Contains routes for user-related operations like getting user data and updating user information.
- *
- * @module routes/user
- */
-
 import { Router } from 'express';
 import * as userController from '../controller/user';
 import { isAuthenticated } from '../middleware/auth';
