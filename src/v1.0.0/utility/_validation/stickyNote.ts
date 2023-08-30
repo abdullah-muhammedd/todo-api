@@ -3,7 +3,7 @@ import joi from 'joi';
 /**
  * Validation schema for a sticky note.
  */
-export const sticyNoteValidation = joi.object({
+export const sticyNoteValidationSchema = joi.object({
     /**
      * The content of the sticky note.
      *

@@ -28,6 +28,6 @@ const stickyNoteSchema = new Schema<IStickyNote>(
     { timestamps: true }
 );
 
-const StickyNote = mongoose.model<IStickyNote>('Tag', stickyNoteSchema);
+const StickyNote = mongoose.model<IStickyNote>('StickyNote', stickyNoteSchema);
 
 export default StickyNote;
