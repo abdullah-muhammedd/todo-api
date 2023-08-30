@@ -97,11 +97,15 @@ export function isDatabaseUniqueIndexError(error: any, errorCode: number, errorN
 export function isOperationAuthorized(userID: string, entity: any): void | never {
     // Compare the user ID with the entity's user ID
     if (userID !== entity.userID.toString()) {
-        throw new AuthError(
-            'Access Denied',
-            ErrorCode.UNAUTHORIZED_ACCESS_ERROR,
-            ErrorName.UNAUTHORIZED_ACCESS_ERROR,
-            AuthErrorStatusCode.FORBIDDEN
-        );
+        throw createAuthError;
     }
+}
+
+function createAuthError(): AuthError {
+    return new AuthError(
+        'Access Denied',
+        ErrorCode.UNAUTHORIZED_ACCESS_ERROR,
+        ErrorName.UNAUTHORIZED_ACCESS_ERROR,
+        AuthErrorStatusCode.FORBIDDEN
+    );
 }
