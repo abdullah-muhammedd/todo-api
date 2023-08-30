@@ -27,7 +27,7 @@ const tagSchema = new Schema<ITag>(
     },
     { timestamps: true }
 );
-tagSchema.pre('deleteOne', () => {});
+// tagSchema.pre('deleteOne', () => {});
 const Tag = mongoose.model<ITag>('Tag', tagSchema);
 
 export default Tag;

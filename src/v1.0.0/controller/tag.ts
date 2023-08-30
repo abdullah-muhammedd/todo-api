@@ -21,7 +21,7 @@ export async function getTag(req: Request, res: Response, next: NextFunction) {
 }
 
 /**
- *  ~ Get a paginated tag of all tags.
+ *  ~ Get a paginated list of all tags.
  *
  * @param {Request} req - Express Request object.
  * @param {Response} res - Express Response object.
@@ -85,7 +85,7 @@ export async function patchTag(req: Request, res: Response, next: NextFunction) 
  * @param {Response} res - Express Response object.
  * @param {NextFunction} next - Express Next function.
  */
-export async function deletetag(req: Request, res: Response, next: NextFunction) {
+export async function deleteTag(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
         const tagId = req.params.id;

@@ -11,17 +11,18 @@ const ERROR_NAME = ErrorName.TAG_DATA_VALIDATION_ERROR;
  *
  * @param {number} perPage - The number of tags to retrieve per page.
  * @param {number} page - The page number.
- * @param {string} userId - The user ID to filter tags by.
+ * @param {string} userID - The Owner ID
  * @throws {ValidationError} Throws a `ValidationError` if there are no tags or there's an issue with pagination.
  * @returns {Promise<[ITag]>} A promise that resolves to an array of tags.
  */
-export async function getAll(perPage: number = 3, page: number = 1, userId: string): Promise<[ITag]> {
-    databaseValidation.isValidId(userId, ERROR_CODE, ERROR_NAME);
-    const result = await Tag.find({ userID: userId })
+export async function getAll(perPage: number = 3, page: number = 1, userID: string): Promise<[ITag] | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
+    const result = await Tag.find({ userID })
         .skip(perPage * (page - 1))
         .limit(perPage)
+        .select({ userID: 0 })
         .lean();
-    databaseValidation.isEntityExist(result.length, ERROR_CODE, ERROR_NAME);
+    databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
     return result as [ITag];
 }
 
@@ -29,15 +30,21 @@ export async function getAll(perPage: number = 3, page: number = 1, userId: stri
  * ~ Get a tag by ID.
  *
  * @param {string} id - The ID of the tag to retrieve.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if the provided ID is invalid or the tag does not exist.
  * @returns {Promise<ITag>} A promise that resolves to the retrieved tag.
  */
-export async function get(id: string, userId: string): Promise<ITag> {
+export async function get(id: string, userID: string): Promise<Object | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await Tag.findOne({ _id: id, userID: userId }).lean();
+
+    const result = await Tag.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return result as ITag;
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const { userID: _, ...filteredResult } = result as ITag;
+
+    return filteredResult as Object;
 }
 
 /**
@@ -57,28 +64,41 @@ export async function add(tagData: any): Promise<void> {
  *
  * @param {string} id - The ID of the tag to update.
  * @param {Object} tagData - The updated tag data.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the tag does not exist.
  * @returns {Promise<number>} A promise that resolves to the number of modified tags (0 or 1).
  */
-export async function update(id: string, tagData: Object, userId: string): Promise<number> {
+export async function update(id: string, tagData: Object, userID: string): Promise<number | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await Tag.findOneAndUpdate({ _id: id, userID: userId }, tagData);
+
+    const result = await Tag.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return 1;
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const acknowledgment = await Tag.updateOne({ _id: id }, tagData);
+    databaseValidation.isEntityUpdated(acknowledgment, ERROR_CODE, ERROR_NAME);
+
+    return acknowledgment.modifiedCount;
 }
 
 /**
  * ~ Remove a tag from the database by ID.
  *
  * @param {string} id - The ID of the tag to remove.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the ID or the tag does not exist.
  * @returns {Promise<number>} A promise that resolves to the number of deleted tags (0 or 1).
  */
-export async function remove(id: string, userId: string): Promise<number> {
+export async function remove(id: string, userID: string): Promise<number> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await Tag.findOneAndDelete({ _id: id, userID: userId });
+
+    const result = await Tag.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return 1;
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const acknowledgment = await Tag.deleteOne({ _id: id });
+    databaseValidation.isEntityExist(acknowledgment, ERROR_CODE, ERROR_NAME);
+    return acknowledgment.deletedCount;
 }
