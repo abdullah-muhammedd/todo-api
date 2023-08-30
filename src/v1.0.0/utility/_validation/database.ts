@@ -1,5 +1,6 @@
 import { isValidObjectId } from 'mongoose';
 import { ValidationError, ErrorStatusCode } from '../_error/ValidationError';
+import { AuthError, ErrorCode, ErrorName, ErrorStatusCode as AuthErrorStatusCode } from '../_error/AuthError';
 
 /**
  * Checks if a provided ID is valid or not. If not valid, it throws a validation error.
@@ -82,6 +83,28 @@ export function isDatabaseUniqueIndexError(error: any, errorCode: number, errorN
             errorCode,
             errorName,
             ErrorStatusCode.UNPROCESSABLE_ENTITY
+        );
+    }
+}
+
+/**
+ * Checks if the user is authorized to perform an operation on an entity.
+ *
+ * @param {string} userID - The ID of the user attempting the operation.
+ * @param {object} entity - The entity on which the operation is being performed.
+ * @throws {AuthError} Throws an AuthError if the user is not authorized.
+ */
+export function isOperationAuthorized(userID: string, entity: any): void | never {
+    console.log(userID);
+    console.log(entity.userID);
+
+    // Compare the user ID with the entity's user ID
+    if (userID !== entity.userID.toString()) {
+        throw new AuthError(
+            'Access Denied',
+            ErrorCode.UNAUTHORIZED_ACCESS_ERROR,
+            ErrorName.UNAUTHORIZED_ACCESS_ERROR,
+            AuthErrorStatusCode.FORBIDDEN
         );
     }
 }
