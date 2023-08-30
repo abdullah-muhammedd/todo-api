@@ -11,34 +11,40 @@ const ERROR_NAME = ErrorName.LIST_DATA_VALIDATION_ERROR;
  *
  * @param {number} perPage - The number of items per page.
  * @param {number} page - The page number.
- * @param {string} userId - The user ID to filter lists by.
+ * @param {string} userID - Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if there are no lists or there's an issue with pagination.
- * @returns {Promise<IList[]>} A promise that resolves to an array of lists.
+ * @returns {Promise<[IList]>} A promise that resolves to an array of lists.
  */
-export async function getAll(perPage: number = 3, page: number = 1, userId: string): Promise<IList[]> {
-    databaseValidation.isValidId(userId, ERROR_CODE, ERROR_NAME);
-    const result = await List.find({ userID: userId })
-        .skip(perPage * (page - 1)) // Adjusted pagination calculation
+export async function getAll(perPage: number = 3, page: number = 1, userID: string): Promise<[IList] | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
+    const result = await List.find({ userID })
+        .skip(perPage * (page - 1))
         .limit(perPage)
         .select({ userID: 0 })
         .lean();
-    databaseValidation.isEntityExist(result.length, ERROR_CODE, ERROR_NAME);
-    return result;
+    databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
+    return result as [IList];
 }
 
 /**
  *  ~ Get a list by ID.
  *
  * @param {string} id - The ID of the list to retrieve.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if the provided ID is invalid or the list does not exist.
  * @returns {Promise<IList>} A promise that resolves to the retrieved list.
  */
-export async function get(id: string, userId: string): Promise<IList> {
+export async function get(id: string, userID: string): Promise<Object | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await List.findOne({ _id: id, userID: userId }).select({ userID: 0 }).lean();
+
+    const result = await List.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return result as IList;
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const { userID: _, ...filteredResult } = result as IList;
+
+    return filteredResult as Object;
 }
 
 /**
@@ -58,28 +64,40 @@ export async function add(listData: any): Promise<void> {
  *
  * @param {string} id - The ID of the list to update.
  * @param {Object} listData - The updated list data.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the list does not exist.
  * @returns {Promise<number>} A promise that resolves to the number of modified lists (0 or 1).
  */
-export async function update(id: string, listData: object, userId: string): Promise<number> {
+export async function update(id: string, listData: object, userID: string): Promise<number | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await List.findOneAndUpdate({ _id: id, userID: userId }, listData);
+
+    const result = await List.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return 1; // It will always be 1 because of its unique id
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const acknowledgment = await List.updateOne({ _id: id }, listData);
+    databaseValidation.isEntityUpdated(acknowledgment, ERROR_CODE, ERROR_NAME);
+    return acknowledgment.modifiedCount;
 }
 
 /**
  *  ~ Remove a list from the database by ID.
  *
  * @param {string} id - The ID of the list to remove.
- * @param {string} userId - The user ID to validate ownership.
+ * @param {string} userID - The Owner ID.
  * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the ID or the list does not exist.
  * @returns {Promise<number>} A promise that resolves to the number of deleted lists (0 or 1).
  */
-export async function remove(id: string, userId: string): Promise<number> {
+export async function remove(id: string, userID: string): Promise<number | never> {
+    databaseValidation.isValidId(userID, ERROR_CODE, ERROR_NAME);
     databaseValidation.isValidId(id, ERROR_CODE, ERROR_NAME);
-    const result = await List.findOneAndDelete({ _id: id, userID: userId });
+
+    const result = await List.findById(id).lean();
     databaseValidation.isEntityExist(result, ERROR_CODE, ERROR_NAME);
-    return 1; // It will always be 1 because of its unique id
+    databaseValidation.isOperationAuthorized(userID, result);
+
+    const acknowledgment = await List.deleteOne({ _id: id });
+    databaseValidation.isEntityDeleted(acknowledgment, ERROR_CODE, ERROR_NAME);
+    return acknowledgment.deletedCount;
 }

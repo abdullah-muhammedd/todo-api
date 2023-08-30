@@ -28,7 +28,7 @@ const listSchema = new Schema<IList>(
     { timestamps: true }
 );
 
-listSchema.pre('deleteOne', () => {});
+// listSchema.pre('deleteOne', () => {});
 const List = mongoose.model<IList>('List', listSchema);
 
 export default List;
