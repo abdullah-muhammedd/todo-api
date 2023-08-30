@@ -95,9 +95,6 @@ export function isDatabaseUniqueIndexError(error: any, errorCode: number, errorN
  * @throws {AuthError} Throws an AuthError if the user is not authorized.
  */
 export function isOperationAuthorized(userID: string, entity: any): void | never {
-    console.log(userID);
-    console.log(entity.userID);
-
     // Compare the user ID with the entity's user ID
     if (userID !== entity.userID.toString()) {
         throw new AuthError(
