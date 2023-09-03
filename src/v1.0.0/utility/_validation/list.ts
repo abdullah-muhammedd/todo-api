@@ -13,7 +13,7 @@ export const listValidationSchema = joi.object({
      * @messages {'any.only': 'List Heading Is Required '}
      */
     heading: joi.string().trim().required().messages({
-        'any.only': 'List Heading Is Required '
+        'any.required': 'List Heading Is Required '
     }),
 
     /**

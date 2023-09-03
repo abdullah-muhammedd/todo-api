@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-
+import Task from './task';
 export interface ITag extends Document {
     userID: {
         type: Types.ObjectId;
@@ -27,7 +27,16 @@ const tagSchema = new Schema<ITag>(
     },
     { timestamps: true }
 );
-// tagSchema.pre('deleteOne', () => {});
+
+// Define a pre-delete hook to set tagID to null on associated tasks
+tagSchema.pre('deleteOne', { document: false, query: true }, async function (next) {
+    const tagID = this.getQuery()._id;
+
+    // Update all tasks that have this listID to set listID to null
+    await Task.updateMany({ tagID }, { $set: { tagID: null } });
+
+    next();
+});
 const Tag = mongoose.model<ITag>('Tag', tagSchema);
 
 export default Tag;

@@ -41,7 +41,6 @@ const lastNameSchema = joi.string().trim().required().messages({
 
 /**
  * Validation schema for a user's attributes.
- * @typedef {Object} UserAttributesSchema
  * @property {string} userName - The username.
  * @property {string} email - The email address.
  * @property {string} password - The password.
@@ -50,10 +49,6 @@ const lastNameSchema = joi.string().trim().required().messages({
  * @property {string} lastName - The user's last name.
  */
 
-/**
- * Validation schema for adding a new user.
- * @type {import('joi').ObjectSchema<UserAttributesSchema>}
- */
 export const addingUserSchema = joi
     .object({
         userName: userNameSchema,
@@ -67,10 +62,6 @@ export const addingUserSchema = joi
     })
     .with('password', 'confirmPassword');
 
-/**
- * Validation schema for updating a user's information.
- * @type {import('joi').ObjectSchema<UserAttributesSchema>}
- */
 export const updatingUserSchema = joi.object({
     userName: userNameSchema,
     email: emailSchema,
@@ -83,11 +74,6 @@ export const updatingUserSchema = joi.object({
  * @typedef {Object} UserLoginSchema
  * @property {string} emailOrUserName - The email address or username.
  * @property {string} password - The user's password.
- */
-
-/**
- * Validation schema for checking a user's credentials during login.
- * @type {import('joi').ObjectSchema<UserLoginSchema>}
  */
 export const checkingUserSchema = joi.object({
     emailOrUserName: joi.alternatives(
@@ -117,11 +103,6 @@ export const checkingUserSchema = joi.object({
  * Validation schema for updating a user's password.
  * @typedef {Object} UserPasswordSchema
  * @property {string} password - The new password.
- */
-
-/**
- * Validation schema for updating a user's password.
- * @type {import('joi').ObjectSchema<UserPasswordSchema>}
  */
 export const updatingPasswordSchema = joi.object({
     password: passwordSchema

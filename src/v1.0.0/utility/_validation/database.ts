@@ -1,111 +1,103 @@
 import { isValidObjectId } from 'mongoose';
-import { ValidationError, ErrorStatusCode } from '../_error/ValidationError';
-import { AuthError, ErrorCode, ErrorName, ErrorStatusCode as AuthErrorStatusCode } from '../_error/AuthError';
+import ValidationError from '../_error/ValidationError';
+import AuthError from '../_error/AuthError';
+import { BAD_REQUEST, UNPROCESSABLE_ENTITY, FORBIDDEN } from '../_types/statusCodes';
 
 /**
- * Checks if a provided ID is valid or not. If not valid, it throws a validation error.
- *
- * @param {string} id - The ID to validate.
- * @param {number} errorCode - The error code to use in the validation error.
- * @param {string} errorName - The error name to use in the validation error.
- * @throws {ValidationError} - Throws a validation error if the ID is not valid.
+ * Helper class for validation operations.
  */
-export function isValidId(id: string, errorCode: number, errorName: string): void | never {
-    if (!isValidObjectId(id)) {
-        throw new ValidationError('ID Is Not A Valid Id', errorCode, errorName, ErrorStatusCode.BAD_REQUEST);
-    }
-}
-
-/**
- * Checks if an entity exists. If not, it throws a validation error.
- *
- * @param {any} entity - The entity to check for existence.
- * @param {number} errorCode - The error code to use in the validation error.
- * @param {string} errorName - The error name to use in the validation error.
- * @throws {ValidationError} - Throws a validation error if the entity does not exist.
- */
-export function isEntityExist(entity: any, errorCode: number, errorName: string): void | never {
-    if (!entity) {
-        throw new ValidationError('Entity Not Found', errorCode, errorName, ErrorStatusCode.UNPROCESSABLE_ENTITY);
-    }
-}
-
-/**
- * Checks if an entity has been updated. If not, it throws a validation error.
- *
- * @param {any} acknowlegment - The acknowledgment object to check.
- * @param {number} errorCode - The error code to use in the validation error.
- * @param {string} errorName - The error name to use in the validation error.
- * @throws {ValidationError} - Throws a validation error if the entity has not been updated.
- */
-export function isEntityUpdated(acknowlegment: any, errorCode: number, errorName: string): void | never {
-    if (acknowlegment.matchedCount === 0) {
-        throw new ValidationError('Entity Not Found ', errorCode, errorName, ErrorStatusCode.BAD_REQUEST);
-    }
-    if (acknowlegment.modifiedCount === 0) {
-        throw new ValidationError('Entity Is Not Updated', errorCode, errorName, ErrorStatusCode.UNPROCESSABLE_ENTITY);
-    }
-}
-
-/**
- * Checks if an entity has been deleted. If not, it throws a validation error.
- *
- * @param {any} acknowlegment - The acknowledgment object to check.
- * @param {number} errorCode - The error code to use in the validation error.
- * @param {string} errorName - The error name to use in the validation error.
- * @throws {ValidationError} - Throws a validation error if the entity has not been deleted.
- */
-export function isEntityDeleted(acknowlegment: any, errorCode: number, errorName: string): void | never {
-    if (acknowlegment.acknowledged === false) {
-        throw new ValidationError('Entity Not Found ', errorCode, errorName, ErrorStatusCode.UNPROCESSABLE_ENTITY);
-    }
-    if (acknowlegment.deletedCount === 0) {
-        throw new ValidationError('Entity Is Not Deleted', errorCode, errorName, ErrorStatusCode.UNPROCESSABLE_ENTITY);
-    }
-}
-
-/**
- * Handles a database unique index error. If such an error occurs, it throws a validation error.
- *
- * @param {any} error - The error object to check for a unique index error.
- * @param {number} errorCode - The error code to use in the validation error.
- * @param {string} errorName - The error name to use in the validation error.
- * @throws {ValidationError} - Throws a validation error if a unique index error occurs.
- */
-export function isDatabaseUniqueIndexError(error: any, errorCode: number, errorName: string) {
-    if (error.name === 'MongoServerError' && error.code === 11000) {
-        const fields: string[] = [];
-        for (const k in error.keyValue) {
-            fields.push(k);
+export class ValidationHelper {
+    /**
+     * Checks if a provided ID is valid or not. If not valid, it throws a validation error.
+     *
+     * @param {string} id - The ID to validate.
+     * @throws {ValidationError} - Throws a validation error if the ID is not valid.
+     */
+    static isValidId(id: string): void {
+        if (!isValidObjectId(id)) {
+            throw new ValidationError('Invalid ID', BAD_REQUEST);
         }
-        throw new ValidationError(
-            `The Fields \`${fields}\` Are Already Used Before`,
-            errorCode,
-            errorName,
-            ErrorStatusCode.UNPROCESSABLE_ENTITY
-        );
+    }
+
+    /**
+     * Checks if an entity exists. If not, it throws a validation error.
+     *
+     * @param {any | null} entity - The entity to check for existence.
+     * @throws {ValidationError} - Throws a validation error if the entity does not exist.
+     */
+    static isEntityExist(entity: any | null): void {
+        if (!entity) {
+            throw new ValidationError('Entity Not Found', UNPROCESSABLE_ENTITY);
+        }
     }
 }
 
 /**
- * Checks if the user is authorized to perform an operation on an entity.
- *
- * @param {string} userID - The ID of the user attempting the operation.
- * @param {object} entity - The entity on which the operation is being performed.
- * @throws {AuthError} Throws an AuthError if the user is not authorized.
+ * Helper class for entity update operations.
  */
-export function isOperationAuthorized(userID: string, entity: any): void | never {
-    // Compare the user ID with the entity's user ID
-    if (userID !== entity.userID.toString()) {
-        throw createAuthError;
+export class EntityUpdater {
+    /**
+     * Checks if an entity has been updated. If not, it throws a validation error.
+     *
+     * @param {any} acknowledgment - The acknowledgment object to check.
+     * @throws {ValidationError} - Throws a validation error if the entity has not been updated.
+     */
+    static isEntityUpdated(acknowledgment: any): void {
+        if (acknowledgment.matchedCount === 0 || acknowledgment.modifiedCount === 0) {
+            throw new ValidationError('Entity Not Updated', UNPROCESSABLE_ENTITY);
+        }
     }
 }
 
-function createAuthError(): AuthError {
-    return new AuthError(
-        'Access Denied',
-        ErrorCode.UNAUTHORIZED_ACCESS_ERROR,
-        ErrorName.UNAUTHORIZED_ACCESS_ERROR,
-        AuthErrorStatusCode.FORBIDDEN
-    );
+/**
+ * Helper class for entity deletion operations.
+ */
+export class EntityDeleter {
+    /**
+     * Checks if an entity has been deleted. If not, it throws a validation error.
+     *
+     * @param {any} acknowledgment - The acknowledgment object to check.
+     * @throws {ValidationError} - Throws a validation error if the entity has not been deleted.
+     */
+    static isEntityDeleted(acknowledgment: any): void {
+        if (!acknowledgment.acknowledged || acknowledgment.deletedCount === 0) {
+            throw new ValidationError('Entity Not Deleted', UNPROCESSABLE_ENTITY);
+        }
+    }
+}
+
+/**
+ * Helper class for handling unique index errors.
+ */
+export class UniqueIndexErrorHandler {
+    /**
+     * Handles a database unique index error. If such an error occurs, it throws a validation error.
+     *
+     * @param {any} error - The error object to check for a unique index error.
+     * @throws {ValidationError} - Throws a validation error if a unique index error occurs.
+     */
+    static isDatabaseUniqueIndexError(error: any): void {
+        if (error.name === 'MongoServerError' && error.code === 11000) {
+            const fields: string[] = Object.keys(error.keyValue);
+            throw new ValidationError(`The fields [${fields}] are already in use.`, BAD_REQUEST);
+        }
+    }
+}
+
+/**
+ * Helper class for authorization checks.
+ */
+export class AuthorizationChecker {
+    /**
+     * Checks if the user is authorized to perform an operation on an entity.
+     *
+     * @param {string} userID - The ID of the user attempting the operation.
+     * @param {any} entity - The entity on which the operation is being performed.
+     * @throws {AuthError} Throws an AuthError if the user is not authorized.
+     */
+    static isOperationAuthorized(userID: string, entity: any): void {
+        if (userID !== entity.userID.toString()) {
+            throw new AuthError('Access Denied', FORBIDDEN);
+        }
+    }
 }

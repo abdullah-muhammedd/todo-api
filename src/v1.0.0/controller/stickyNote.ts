@@ -1,19 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
-import * as stickyServices from '../services/stickyNote';
+import StickyServices from '../services/stickyNote';
 import { sticyNoteValidationSchema } from '../utility/_validation/stickyNote';
-import { ErrorCode, ErrorName, ErrorStatusCode, ValidationError } from '../utility/_error/ValidationError';
+import ValidationError from '../utility/_error/ValidationError';
+import { BAD_REQUEST, UNPROCESSABLE_ENTITY } from '../utility/_types/statusCodes';
 
 /**
- *  ~ Get a specific sticky note by its ID.
- *
- * @param {Request} req - Express Request object.
- * @param {Response} res - Express Response object.
- * @param {NextFunction} next - Express Next function.
+ *  Get a specific sticky note by its ID.
  */
 export async function getStickyNote(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
-        const stickyNote = await stickyServices.get(req.params.id, userId);
+        const stickyNote = await StickyServices.get(req.params.id, userId);
         return res.status(200).json({ message: 'Sticky Note Found Successfully', stickyNote });
     } catch (error) {
         return next(error);
@@ -21,18 +18,14 @@ export async function getStickyNote(req: Request, res: Response, next: NextFunct
 }
 
 /**
- *  ~ Get a paginated list of all sticky notes.
- *
- * @param {Request} req - Express Request object.
- * @param {Response} res - Express Response object.
- * @param {NextFunction} next - Express Next function.
+ *  Get a paginated list of all sticky notes.
  */
 export async function getStickyNotes(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
         const page: string = req.query.page as string;
         const perPage: string = req.query.perPage as string;
-        const stickyNotes = await stickyServices.getAll(+perPage, +page, userId);
+        const stickyNotes = await StickyServices.getAll(+perPage, +page, userId);
         return res.status(200).json({ message: 'sticky Notes Found Successfully', stickyNotes });
     } catch (error) {
         return next(error);
@@ -40,19 +33,14 @@ export async function getStickyNotes(req: Request, res: Response, next: NextFunc
 }
 
 /**
- * ~ Create a new sticky note.
- *
- * @param {Request} req - Express Request object.
- * @param {Response} res - Express Response object.
- * @param {NextFunction} next - Express Next function.
-
+ *  Create a new sticky note.
  */
 export async function postStickyNote(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
         const stickyBody = validate(req.body);
         stickyBody.userID = userId;
-        await stickyServices.add(stickyBody);
+        await StickyServices.add(stickyBody);
         return res.status(200).json({ message: 'Sticky Note Added Successfully' });
     } catch (error) {
         return next(error);
@@ -60,18 +48,14 @@ export async function postStickyNote(req: Request, res: Response, next: NextFunc
 }
 
 /**
- *  ~ Update an existing sticky note by its ID.
- *
- * @param {Request} req - Express Request object.
- * @param {Response} res - Express Response object.
- * @param {NextFunction} next - Express Next function.
+ *  Update an existing sticky note by its ID.
  */
 export async function patchStickyNote(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
         const stickyId = req.params.id;
         const stickyBody = validate(req.body);
-        const modifiedCount: number = await stickyServices.update(stickyId, stickyBody, userId);
+        const modifiedCount: number = await StickyServices.update(stickyId, stickyBody, userId);
         return res.status(200).json({ message: 'Sticky Note Updated Successfully', modifiedCount });
     } catch (error) {
         return next(error);
@@ -79,17 +63,13 @@ export async function patchStickyNote(req: Request, res: Response, next: NextFun
 }
 
 /**
- *  ~ Delete a sticky note by its ID.
- *
- * @param {Request} req - Express Request object.
- * @param {Response} res - Express Response object.
- * @param {NextFunction} next - Express Next function.
+ *  Delete a sticky note by its ID.
  */
 export async function deleteStickyNote(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
         const stickyId = req.params.id;
-        const deletedCount: number = await stickyServices.remove(stickyId, userId);
+        const deletedCount: number = await StickyServices.remove(stickyId, userId);
         return res.status(200).json({ message: 'Sticky Note Deleted Successfully', deletedCount });
     } catch (error) {
         return next(error);
@@ -100,16 +80,11 @@ export async function deleteStickyNote(req: Request, res: Response, next: NextFu
 function validate(body: any) {
     const { error, value } = sticyNoteValidationSchema.validate(body);
     if (error) {
-        let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
+        let statusCode = UNPROCESSABLE_ENTITY;
         if (error.details[0].type === 'any.required') {
-            statusCode = ErrorStatusCode.BAD_REQUEST;
+            statusCode = BAD_REQUEST;
         }
-        throw new ValidationError(
-            error.message,
-            ErrorCode.STICKY_DATA_VALIDATION_ERROR,
-            ErrorName.STICKY_DATA_VALIDATION_ERROR,
-            statusCode
-        );
+        throw new ValidationError(error.message, statusCode);
     }
     return value;
 }

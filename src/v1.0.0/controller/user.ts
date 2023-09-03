@@ -1,21 +1,17 @@
 import { Request, Response, NextFunction } from 'express';
-import * as userServices from '../services/user';
+import UserServices from '../services/user';
 import * as userValidation from '../utility/_validation/user';
 import * as passwordEncryption from '../utility/_encryption/password';
-import { ErrorCode, ErrorName, ErrorStatusCode, ValidationError } from '../utility/_error/ValidationError';
+import ValidationError from '../utility/_error/ValidationError';
+import { BAD_REQUEST, UNPROCESSABLE_ENTITY } from '../utility/_types/statusCodes';
 
 /**
- * ~ Retrieves a user's information.
- *
- * @param {Request} req - The Express request object.
- * @param {Response} res - The Express response object.
- * @param {NextFunction} next - The next middleware function.
- * @returns {Promise<Response | void>} ~ A response containing the user's information or an error response.
+ *  Retrieves a user's information.
  */
 export async function getUser(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
         const id = res.locals.userId;
-        const user = await userServices.find(id);
+        const user = await UserServices.find(id);
         return res.status(200).json({
             message: 'User Found Successfully',
             user
@@ -26,33 +22,22 @@ export async function getUser(req: Request, res: Response, next: NextFunction): 
 }
 
 /**
- * ~ Updates a user's data.
- *
- * @param {Request} req - The Express request object.
- * @param {Response} res - The Express response object.
- * @param {NextFunction} next - The next middleware function.
- * @returns {Promise<Response | void>} ~ A response indicating the success of the update or an error response.
- * @throws {ValidationError} ~ Throws a `ValidationError` if the provided user data is invalid.
+ *  Updates a user's data.
  */
 export async function patchUserData(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
         const body = req.body;
         const { error, value } = userValidation.updatingUserSchema.validate(body);
         if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
+            let statusCode = UNPROCESSABLE_ENTITY;
             if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
+                statusCode = BAD_REQUEST;
             }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.USER_DATA_VALIDATION_ERROR,
-                ErrorName.USER_DATA_VALIDATION_ERROR,
-                statusCode
-            );
+            throw new ValidationError(error.message, statusCode);
         }
 
         const id = res.locals.userId;
-        const modifiedCount = await userServices.update(id, value);
+        const modifiedCount = await UserServices.update(id, value);
         return res.status(200).json({
             message: 'User Updated Successfully',
             modifiedUsers: modifiedCount
@@ -61,37 +46,26 @@ export async function patchUserData(req: Request, res: Response, next: NextFunct
 }
 
 /**
- * ~ Updates a user's password.
- *
- * @param {Request} req - The Express request object.
- * @param {Response} res - The Express response object.
- * @param {NextFunction} next - The next middleware function.
- * @returns {Promise<Response | void>} ~ A response indicating the success of the password update or an error response.
- * @throws {ValidationError} ~ Throws a `ValidationError` if the provided password is invalid.
+ *  Updates a user's password.
  */
 export async function patchUserPassword(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
         const body = req.body;
         const { error, value } = userValidation.updatingPasswordSchema.validate(body);
         if (error) {
-            let statusCode = ErrorStatusCode.UNPROCESSABLE_ENTITY;
+            let statusCode = UNPROCESSABLE_ENTITY;
             if (error.details[0].type === 'any.required') {
-                statusCode = ErrorStatusCode.BAD_REQUEST;
+                statusCode = BAD_REQUEST;
             }
-            throw new ValidationError(
-                error.message,
-                ErrorCode.USER_DATA_VALIDATION_ERROR,
-                ErrorName.USER_DATA_VALIDATION_ERROR,
-                statusCode
-            );
+            throw new ValidationError(error.message, statusCode);
         }
 
         const password = body.password;
         const hashedPassword = await passwordEncryption.getEncryptedPassword(password);
-        body.password = hashedPassword;
+        value.password = hashedPassword;
 
         const id = res.locals.userId;
-        const modifiedCount = await userServices.update(id, value);
+        const modifiedCount = await UserServices.update(id, value);
 
         return res.status(200).json({
             message: 'User Updated Successfully',

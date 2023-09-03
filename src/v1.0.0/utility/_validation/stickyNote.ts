@@ -13,7 +13,7 @@ export const sticyNoteValidationSchema = joi.object({
      * @messages {'any.only': 'Sticky Note Content Is Required '}
      */
     content: joi.string().trim().required().messages({
-        'any.only': 'Sticky Note Content Is Required '
+        'any.required': 'Sticky Note Content Is Required '
     }),
 
     /**

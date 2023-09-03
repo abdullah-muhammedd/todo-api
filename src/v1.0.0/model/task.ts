@@ -1,5 +1,8 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-
+import List from './list';
+import Tag from './tag';
+import ValidationError from '../utility/_error/ValidationError';
+import { BAD_REQUEST } from '../utility/_types/statusCodes';
 export interface ITask extends Document {
     userID: {
         type: Types.ObjectId;
@@ -72,6 +75,28 @@ const taskSchema = new Schema<ITask>(
     },
     { timestamps: true }
 );
+
+// Define a pre-save hook to validate the listID
+taskSchema.pre('save', async function (next) {
+    if (this.isModified('listID')) {
+        const listExists = await List.exists({ _id: this.listID });
+        if (!listExists) {
+            throw new ValidationError('The provided listID is not exists', BAD_REQUEST);
+        }
+    }
+    next();
+});
+
+// Define a pre-save hook to validate the tagID
+taskSchema.pre('save', async function (next) {
+    if (this.isModified('tagID')) {
+        const tagExists = await Tag.exists({ _id: this.tagID });
+        if (!tagExists) {
+            throw new ValidationError('The provided tagID is not exists', BAD_REQUEST);
+        }
+    }
+    next();
+});
 
 taskSchema.index({ listID: 1, tagID: 1 });
 

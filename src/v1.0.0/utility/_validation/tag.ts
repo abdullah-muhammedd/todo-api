@@ -13,7 +13,7 @@ export const tagValidationSchema = joi.object({
      * @messages {'any.only': 'Tag Heading Is Required '}
      */
     heading: joi.string().trim().required().messages({
-        'any.only': 'Tag Heading Is Required '
+        'any.reqired': 'Tag Heading Is Required '
     }),
 
     /**
