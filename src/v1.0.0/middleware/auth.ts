@@ -9,7 +9,11 @@ import * as jwt from '../utility/_jwt/jwt';
  * If the token is expired, it is renewed using the provided refresh token.
  * If the refresh token is also expired, an error is thrown.
  */
-export function isAuthenticated(req: Request, res: Response, next: NextFunction): void {
+export function isAuthenticated(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): void {
     try {
         const accessToken = req.signedCookies.access_token?.split(' ')[1];
 
@@ -36,7 +40,11 @@ export function isAuthenticated(req: Request, res: Response, next: NextFunction)
  *
  * @throws {AuthError} Throws an AuthError if the refresh token is also expired.
  */
-function handleAccessTokenExpiry(req: Request, res: Response, next: NextFunction) {
+function handleAccessTokenExpiry(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
     try {
         const refreshToken = req.signedCookies.refresh_token?.split(' ')[1];
 
@@ -45,7 +53,11 @@ function handleAccessTokenExpiry(req: Request, res: Response, next: NextFunction
         }
 
         const { token, userId } = jwt.renewAccessToken(refreshToken);
-        res.setHeader('Authorization', `Bearer ${token}`);
+        res.cookie('access_token', `Bearer ${token}`, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000,
+            signed: true
+        });
         res.locals.userId = userId;
 
         return next();
@@ -63,7 +75,11 @@ function handleAccessTokenExpiry(req: Request, res: Response, next: NextFunction
  *
  * @throws {AuthError} Throws an AuthError with a client-friendly message if an access token is present.
  */
-export function isNotAuthenticated(req: Request, _res: Response, next: NextFunction): void {
+export function isNotAuthenticated(
+    req: Request,
+    _res: Response,
+    next: NextFunction
+): void {
     const accessToken = req.signedCookies.access_token?.split(' ')[1];
 
     if (accessToken) {
