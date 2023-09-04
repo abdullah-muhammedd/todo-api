@@ -1,8 +1,18 @@
 import Task, { ITask } from '../model/task';
-import { ValidationHelper, EntityUpdater, EntityDeleter, AuthorizationChecker } from '../utility/_validation/database';
+import {
+    ValidationHelper,
+    EntityUpdater,
+    EntityDeleter,
+    AuthorizationChecker
+} from '../utility/_validation/database';
 
 // Types
-type TaskQuery = { userID: string; dueDateFrom: string | null; dueDateTo: string | null; done: boolean | null };
+type TaskQuery = {
+    userID: string;
+    dueDateFrom: string | null;
+    dueDateTo: string | null;
+    done: boolean | null;
+};
 
 /**
  * Service class for handling task-related operations.
@@ -17,7 +27,11 @@ export default class TaskServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no tasks or there's an issue with pagination.
      * @returns {Promise<[ITask]>} A promise that resolves to an array of tasks.
      */
-    static async getAll(perPage: number = 10, page: number = 1, queryParams: TaskQuery): Promise<[ITask] | never> {
+    static async getAll(
+        perPage: number,
+        page: number,
+        queryParams: TaskQuery
+    ): Promise<[ITask] | never> {
         ValidationHelper.isValidId(queryParams.userID);
 
         const cleanedQuery: any = {};
@@ -96,7 +110,11 @@ export default class TaskServices {
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the task does not exist.
      * @returns {Promise<number>} A promise that resolves to the number of modified tasks (0 or 1).
      */
-    static async update(id: string, taskData: object, userID: string): Promise<number | never> {
+    static async update(
+        id: string,
+        taskData: object,
+        userID: string
+    ): Promise<number | never> {
         ValidationHelper.isValidId(userID);
         ValidationHelper.isValidId(id);
 
@@ -147,7 +165,10 @@ export default class TaskServices {
         AuthorizationChecker.isOperationAuthorized(userID, result);
 
         const newDoneStatus = result ? !result.done : true;
-        const acknowledgment = await Task.updateOne({ _id: id }, { done: newDoneStatus });
+        const acknowledgment = await Task.updateOne(
+            { _id: id },
+            { done: newDoneStatus }
+        );
         EntityUpdater.isEntityUpdated(acknowledgment);
 
         return acknowledgment.modifiedCount; // as the modified count
@@ -164,8 +185,8 @@ export default class TaskServices {
      * @returns {Promise<[ITask]>} A promise that resolves to an array of tasks.
      */
     static async getAllByList(
-        perPage: number = 10,
-        page: number = 1,
+        perPage: number,
+        page: number,
         userID: string,
         listID: string
     ): Promise<[ITask] | never> {
@@ -195,8 +216,8 @@ export default class TaskServices {
      * @returns {Promise<[ITask]>} A promise that resolves to an array of tasks.
      */
     static async getAllByTag(
-        perPage: number = 10,
-        page: number = 1,
+        perPage: number,
+        page: number,
         userID: string,
         tagID: string
     ): Promise<[ITask] | never> {

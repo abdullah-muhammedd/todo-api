@@ -29,7 +29,7 @@ const tagSchema = new Schema<ITag>(
 );
 
 // Define a pre-delete hook to set tagID to null on associated tasks
-tagSchema.pre('deleteOne', { document: false, query: true }, async function (next) {
+tagSchema.pre('deleteOne', async function (next) {
     const tagID = this.getQuery()._id;
 
     // Update all tasks that have this listID to set listID to null

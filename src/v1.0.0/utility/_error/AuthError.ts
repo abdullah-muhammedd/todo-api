@@ -21,11 +21,4 @@ export default class AuthError extends Error {
     ) {
         super();
     }
-
-    /**
-     * Logs the error details to the console.
-     */
-    log() {
-        console.log(this);
-    }
 }

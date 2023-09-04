@@ -1,5 +1,6 @@
 node_modules/
 dist/
 .env
-covergae/
+coverage/
 .vscode/
+jest.config.js

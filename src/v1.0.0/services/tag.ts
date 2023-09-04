@@ -14,7 +14,7 @@ export default class TagServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no tags or there's an issue with pagination.
      * @returns {Promise<[ITag]>} A promise that resolves to an array of tags.
      */
-    static async getAll(perPage: number = 3, page: number = 1, userID: string): Promise<[ITag] | never> {
+    static async getAll(perPage: number, page: number, userID: string): Promise<[ITag] | never> {
         ValidationHelper.isValidId(userID);
         const result = await Tag.find({ userID })
             .skip(perPage * (page - 1))

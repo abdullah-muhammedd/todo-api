@@ -1,7 +1,11 @@
 import { isValidObjectId } from 'mongoose';
 import ValidationError from '../_error/ValidationError';
 import AuthError from '../_error/AuthError';
-import { BAD_REQUEST, UNPROCESSABLE_ENTITY, FORBIDDEN } from '../_types/statusCodes';
+import {
+    BAD_REQUEST,
+    UNPROCESSABLE_ENTITY,
+    FORBIDDEN
+} from '../_types/statusCodes';
 
 /**
  * Helper class for validation operations.
@@ -43,8 +47,14 @@ export class EntityUpdater {
      * @throws {ValidationError} - Throws a validation error if the entity has not been updated.
      */
     static isEntityUpdated(acknowledgment: any): void {
-        if (acknowledgment.matchedCount === 0 || acknowledgment.modifiedCount === 0) {
-            throw new ValidationError('Entity Not Updated', UNPROCESSABLE_ENTITY);
+        if (
+            acknowledgment.matchedCount === 0 ||
+            acknowledgment.modifiedCount === 0
+        ) {
+            throw new ValidationError(
+                'Entity Not Updated',
+                UNPROCESSABLE_ENTITY
+            );
         }
     }
 }
@@ -61,7 +71,10 @@ export class EntityDeleter {
      */
     static isEntityDeleted(acknowledgment: any): void {
         if (!acknowledgment.acknowledged || acknowledgment.deletedCount === 0) {
-            throw new ValidationError('Entity Not Deleted', UNPROCESSABLE_ENTITY);
+            throw new ValidationError(
+                'Entity Not Deleted',
+                UNPROCESSABLE_ENTITY
+            );
         }
     }
 }
@@ -79,7 +92,10 @@ export class UniqueIndexErrorHandler {
     static isDatabaseUniqueIndexError(error: any): void {
         if (error.name === 'MongoServerError' && error.code === 11000) {
             const fields: string[] = Object.keys(error.keyValue);
-            throw new ValidationError(`The fields [${fields}] are already in use.`, BAD_REQUEST);
+            throw new ValidationError(
+                `The fields [${fields}] are already in use.`,
+                BAD_REQUEST
+            );
         }
     }
 }

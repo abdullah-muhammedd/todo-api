@@ -14,7 +14,7 @@ export default class ListServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no lists or there's an issue with pagination.
      * @returns {Promise<[IList]>} A promise that resolves to an array of lists.
      */
-    static async getAll(perPage: number = 3, page: number = 1, userID: string): Promise<[IList] | never> {
+    static async getAll(perPage: number, page: number, userID: string): Promise<[IList] | never> {
         ValidationHelper.isValidId(userID);
         const result = await List.find({ userID })
             .skip(perPage * (page - 1))

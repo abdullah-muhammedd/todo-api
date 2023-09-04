@@ -22,8 +22,8 @@ export async function getList(req: Request, res: Response, next: NextFunction) {
 export async function getLists(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
-        const page: string = req.query.page as string;
-        const perPage: string = req.query.perPage as string; // Corrected variable name
+        const page: string = (req.query.page as string) ?? '1';
+        const perPage: string = (req.query.perPage as string) ?? '3';
         const lists = await ListServices.getAll(+perPage, +page, userId);
         return res.status(200).json({ message: 'Lists Found Successfully', lists });
     } catch (error) {

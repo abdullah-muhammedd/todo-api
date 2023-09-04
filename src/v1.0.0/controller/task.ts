@@ -24,8 +24,8 @@ export async function getTask(req: Request, res: Response, next: NextFunction) {
 export async function getTasks(req: Request, res: Response, next: NextFunction) {
     try {
         const userID = res.locals.userId;
-        const page: string = req.query.page as string;
-        const perPage: string = req.query.perPage as string;
+        const page: string = (req.query.page as string) ?? '1';
+        const perPage: string = (req.query.perPage as string) ?? '10';
 
         // Format the dates
         // prettier-ignore
@@ -111,8 +111,8 @@ export async function patchToggleDone(req: Request, res: Response, next: NextFun
 export async function getTasksByList(req: Request, res: Response, next: NextFunction) {
     try {
         const userID = res.locals.userId;
-        const page: string = req.query.page as string;
-        const perPage: string = req.query.perPage as string;
+        const page: string = (req.query.page as string) ?? '1';
+        const perPage: string = (req.query.perPage as string) ?? '10';
         const listID: string = req.params.listId as string;
 
         const tasks = await TaskServices.getAllByList(+perPage, +page, userID, listID);
@@ -128,8 +128,8 @@ export async function getTasksByList(req: Request, res: Response, next: NextFunc
 export async function getTasksByTag(req: Request, res: Response, next: NextFunction) {
     try {
         const userID = res.locals.userId;
-        const page: string = req.query.page as string;
-        const perPage: string = req.query.perPage as string;
+        const page: string = (req.query.page as string) ?? '1';
+        const perPage: string = (req.query.perPage as string) ?? '10';
         const tagID: string = req.params.tagId as string;
 
         const tasks = await TaskServices.getAllByTag(+perPage, +page, userID, tagID);

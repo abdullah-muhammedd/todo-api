@@ -29,7 +29,7 @@ const listSchema = new Schema<IList>(
 );
 
 // Define a pre-delete hook to set listID to null on associated tasks
-listSchema.pre('deleteOne', { document: false, query: true }, async function (next) {
+listSchema.pre('deleteOne', async function (next) {
     const listID = this.getQuery()._id;
 
     // Update all tasks that have this listID to set listID to null

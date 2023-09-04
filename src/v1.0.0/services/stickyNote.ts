@@ -14,7 +14,7 @@ export default class StickyServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no sticky notes or there's an issue with pagination.
      * @returns {Promise<[IStickyNote]>} A promise that resolves to an array of sticky notes.
      */
-    static async getAll(perPage: number = 9, page: number = 1, userID: string): Promise<[IStickyNote] | never> {
+    static async getAll(perPage: number, page: number, userID: string): Promise<[IStickyNote] | never> {
         ValidationHelper.isValidId(userID);
         const result = await StickyNote.find({ userID })
             .skip(perPage * (page - 1))

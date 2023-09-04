@@ -23,8 +23,8 @@ export async function getStickyNote(req: Request, res: Response, next: NextFunct
 export async function getStickyNotes(req: Request, res: Response, next: NextFunction) {
     try {
         const userId = res.locals.userId;
-        const page: string = req.query.page as string;
-        const perPage: string = req.query.perPage as string;
+        const page: string = (req.query.page as string) ?? '1';
+        const perPage: string = (req.query.perPage as string) ?? '9';
         const stickyNotes = await StickyServices.getAll(+perPage, +page, userId);
         return res.status(200).json({ message: 'sticky Notes Found Successfully', stickyNotes });
     } catch (error) {

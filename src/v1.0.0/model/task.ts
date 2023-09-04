@@ -81,7 +81,10 @@ taskSchema.pre('save', async function (next) {
     if (this.isModified('listID')) {
         const listExists = await List.exists({ _id: this.listID });
         if (!listExists) {
-            throw new ValidationError('The provided listID is not exists', BAD_REQUEST);
+            throw new ValidationError(
+                'The provided listID is not exists',
+                BAD_REQUEST
+            );
         }
     }
     next();
@@ -92,13 +95,17 @@ taskSchema.pre('save', async function (next) {
     if (this.isModified('tagID')) {
         const tagExists = await Tag.exists({ _id: this.tagID });
         if (!tagExists) {
-            throw new ValidationError('The provided tagID is not exists', BAD_REQUEST);
+            throw new ValidationError(
+                'The provided tagID is not exists',
+                BAD_REQUEST
+            );
         }
     }
     next();
 });
 
-taskSchema.index({ listID: 1, tagID: 1 });
+taskSchema.index({ listID: 1 });
+taskSchema.index({ tagID: 1 });
 
 const Task = mongoose.model('Task', taskSchema);
 
