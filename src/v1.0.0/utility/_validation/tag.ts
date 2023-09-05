@@ -13,7 +13,7 @@ export const tagValidationSchema = joi.object({
      * @messages {'any.only': 'Tag Heading Is Required '}
      */
     heading: joi.string().trim().required().messages({
-        'any.reqired': 'Tag Heading Is Required '
+        'any.required': 'Tag Heading Is Required'
     }),
 
     /**
@@ -29,6 +29,7 @@ export const tagValidationSchema = joi.object({
         .trim()
         .regex(/^#[A-Fa-f0-9]{6}/)
         .messages({
-            ' object.regex': 'Not Valid Color, Required Hexadecimal Format'
+            'string.pattern.base':
+                'Not Valid Color, Required Hexadecimal Format'
         })
 });

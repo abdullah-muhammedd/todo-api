@@ -6,10 +6,14 @@ import * as jwt from 'jsonwebtoken';
  * @returns {string} The newly generated access token.
  */
 export function generateAccessToken(userId: string): string {
-    const accessToken = jwt.sign({ userId }, <string>process.env.ACCESS_TOKEN_SECRET, {
-        algorithm: 'HS256',
-        expiresIn: process.env.ACCESS_TOKEN_LIFE
-    });
+    const accessToken = jwt.sign(
+        { userId },
+        process.env.ACCESS_TOKEN_SECRET as string,
+        {
+            algorithm: 'HS256',
+            expiresIn: process.env.ACCESS_TOKEN_LIFE
+        }
+    );
     return accessToken;
 }
 
@@ -20,10 +24,14 @@ export function generateAccessToken(userId: string): string {
  * @returns {string} ~ The newly generated refresh token.
  */
 export function generateRefreshToken(userId: string): string {
-    const refreshToken = jwt.sign({ userId }, <string>process.env.REFRESH_TOKEN_SECRET, {
-        algorithm: 'HS256',
-        expiresIn: process.env.REFRESH_TOKEN_LIFE
-    });
+    const refreshToken = jwt.sign(
+        { userId },
+        process.env.REFRESH_TOKEN_SECRET as string,
+        {
+            algorithm: 'HS256',
+            expiresIn: process.env.REFRESH_TOKEN_LIFE
+        }
+    );
     return refreshToken;
 }
 
@@ -34,7 +42,10 @@ export function generateRefreshToken(userId: string): string {
  * @returns {string | jwt.JwtPayload | null} ~ The payload of the valid access token.
  */
 export function verifyAccessToken(token: string): jwt.JwtPayload | string {
-    const payload = jwt.verify(token, <string>process.env.ACCESS_TOKEN_SECRET);
+    const payload = jwt.verify(
+        token,
+        process.env.ACCESS_TOKEN_SECRET as string
+    );
     return payload;
 }
 
@@ -45,7 +56,10 @@ export function verifyAccessToken(token: string): jwt.JwtPayload | string {
  * @returns {jwt.JwtPayload | string | null} ~ The payload of the valid refresh token.
  */
 export function verifyRefreshToken(token: string): jwt.JwtPayload | string {
-    const payload = jwt.verify(token, <string>process.env.REFRESH_TOKEN_SECRET);
+    const payload = jwt.verify(
+        token,
+        process.env.REFRESH_TOKEN_SECRET as string
+    );
     return payload;
 }
 /**
@@ -54,7 +68,9 @@ export function verifyRefreshToken(token: string): jwt.JwtPayload | string {
  * @param {string} refreshToken - The refresh token to use for renewing the access token.
  * @returns {{ token: string; userId: string }} ~ An object containing the renewed access token and the user ID.
  */
-export function renewAccessToken(refreshToken: string): { token: string; userId: string } | never {
+export function renewAccessToken(
+    refreshToken: string
+): { token: string; userId: string } | never {
     const payload = verifyRefreshToken(refreshToken) as jwt.JwtPayload;
     return {
         token: generateAccessToken(payload.userId),

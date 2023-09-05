@@ -1,11 +1,19 @@
 import joi from 'joi';
 // Seperate and reusable attributes validation rules
-const userNameSchema = joi.string().trim().alphanum().min(3).max(30).required().messages({
-    'string.min': 'UserName Is Too Short It Must Be More Than 3 Chracters',
-    'string.max': "UserName Is Too Long It Must Be Less Than 30 Chracters'",
-    'any.required': 'UserName Is Required',
-    'string.alphanum': 'UserName Must Contain Only English Chracters And Numbers'
-});
+const userNameSchema = joi
+    .string()
+    .trim()
+    .alphanum()
+    .min(3)
+    .max(30)
+    .required()
+    .messages({
+        'string.min': 'UserName Is Too Short It Must Be More Than 3 Chracters',
+        'string.max': 'UserName Is Too Long It Must Be Less Than 30 Chracters',
+        'any.required': 'UserName Is Required',
+        'string.alphanum':
+            'UserName Must Contain Only English Chracters And Numbers'
+    });
 
 const emailSchema = joi
     .string()
@@ -54,9 +62,13 @@ export const addingUserSchema = joi
         userName: userNameSchema,
         email: emailSchema,
         password: passwordSchema,
-        confirmPassword: joi.string().trim().valid(joi.ref('password')).messages({
-            'any.only': 'Passwords Do Not Match'
-        }),
+        confirmPassword: joi
+            .string()
+            .trim()
+            .valid(joi.ref('password'))
+            .messages({
+                'any.only': 'Passwords Do Not Match'
+            }),
         firstName: firstNameSchema,
         lastName: lastNameSchema
     })

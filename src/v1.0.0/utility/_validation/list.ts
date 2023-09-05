@@ -13,7 +13,7 @@ export const listValidationSchema = joi.object({
      * @messages {'any.only': 'List Heading Is Required '}
      */
     heading: joi.string().trim().required().messages({
-        'any.required': 'List Heading Is Required '
+        'any.required': 'List Heading Is Required'
     }),
 
     /**
@@ -29,6 +29,7 @@ export const listValidationSchema = joi.object({
         .trim()
         .regex(/^#[A-Fa-f0-9]{6}/)
         .messages({
-            ' object.regex': 'Not Valid Color, Required Hexadecimal Format'
+            'string.pattern.base':
+                'Not Valid Color, Required Hexadecimal Format'
         })
 });

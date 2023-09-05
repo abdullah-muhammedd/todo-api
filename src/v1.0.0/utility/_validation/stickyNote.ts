@@ -13,7 +13,7 @@ export const sticyNoteValidationSchema = joi.object({
      * @messages {'any.only': 'Sticky Note Content Is Required '}
      */
     content: joi.string().trim().required().messages({
-        'any.required': 'Sticky Note Content Is Required '
+        'any.required': 'Sticky Note Content Is Required'
     }),
 
     /**
@@ -29,6 +29,7 @@ export const sticyNoteValidationSchema = joi.object({
         .trim()
         .regex(/^#[A-Fa-f0-9]{6}/)
         .messages({
-            ' object.regex': 'Not Valid Color, Required Hexadecimal Format'
+            'string.pattern.base':
+                'Not Valid Color, Required Hexadecimal Format'
         })
 });

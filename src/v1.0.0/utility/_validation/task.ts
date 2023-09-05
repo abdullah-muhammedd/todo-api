@@ -8,7 +8,9 @@ export const taskValidationSchema = Joi.object({
      * @description This field is required.
      * @messages {'any.required': 'Task Heading Is Required'}
      */
-    heading: Joi.string().trim().required(),
+    heading: Joi.string().trim().required().messages({
+        'any.required': 'Task Heading Is Required'
+    }),
 
     /**
      * The description of the task.
