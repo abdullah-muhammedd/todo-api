@@ -1,3 +1,4 @@
+import logger from '../_logger/logger ';
 /**
  * Custom error class for authentication-related errors.
  */
@@ -20,5 +21,6 @@ export default class AuthError extends Error {
         public timeStamp: Date = new Date(Date.now())
     ) {
         super();
+        logger.info(this.toString());
     }
 }

@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import logger from '../_logger/logger ';
 
 /**
  * Custom error class for operational errors.
@@ -23,6 +24,7 @@ class OperationalError extends Error {
         public timeStamp: Date = new Date(Date.now())
     ) {
         super();
+        logger.info(this.toString());
     }
 }
 
