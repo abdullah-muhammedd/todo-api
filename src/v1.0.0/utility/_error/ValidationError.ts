@@ -1,3 +1,4 @@
+import logger from '../_logger/logger ';
 /**
  * Custom error class for validation errors.
  */
@@ -21,5 +22,6 @@ export default class ValidationError extends Error {
         public timeStamp: Date = new Date(Date.now())
     ) {
         super();
+        logger.info(this.toString());
     }
 }
