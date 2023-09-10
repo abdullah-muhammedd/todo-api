@@ -1,0 +1,652 @@
+2023-09-10 12:41:09.762 AM [info]: Validation Error: The fields [email] are already in use.
+2023-09-10 12:43:34.832 AM [info]: Validation Error: The fields [userName] are already in use.
+2023-09-10 12:43:39.658 AM [info]: Validation Error: Email Is Not Valid
+2023-09-10 12:43:43.136 AM [info]: Validation Error: UserName Is Too Long It Must Be Less Than 30 Chracters
+2023-09-10 12:43:46.077 AM [info]: Validation Error: Password Must Be More than 8 Characters, And Contain 1 Uppercase, 1 Lowercase, And 1 Number
+2023-09-10 12:43:49.992 AM [info]: Validation Error: Passwords Do Not Match
+2023-09-10 12:58:00.556 AM [info]: Validation Error: Entity Not Found
+2023-09-10 01:05:56.378 AM [info]: Validation Error: Entity Not Found
+2023-09-10 01:07:17.600 AM [info]: Validation Error: Entity Not Found
+2023-09-10 01:07:33.827 AM [info]: Validation Error: "emailOrUserName" does not match any of the allowed types
+2023-09-10 01:07:57.840 AM [info]: Validation Error: Password Is Wrong
+2023-09-10 01:09:22.672 AM [info]: Validation Error: "emailOrUserName" does not match any of the allowed types
+2023-09-10 01:13:40.217 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 01:13:40.218 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 01:15:53.398 AM [info]: Validation Error: Password Is Wrong
+2023-09-10 01:26:18.205 AM [info]: Validation Error: Email Is Not Valid
+2023-09-10 01:26:42.681 AM [info]: Validation Error: Email Is Not Valid
+2023-09-10 01:26:57.467 AM [info]: Validation Error: UserName Is Too Short It Must Be More Than 3 Chracters
+2023-09-10 01:29:04.806 AM [info]: Validation Error: Email Is Not Valid
+2023-09-10 02:14:12.134 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:15:09.337 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:17:15.275 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:17:18.192 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:29:58.500 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 02:34:30.315 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:34:56.182 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:35:09.022 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:45:03.744 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:45:20.588 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 02:49:41.823 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 02:49:45.529 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 02:50:48.287 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:48.348 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.366 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.370 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.413 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.468 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.473 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.477 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.486 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:48.497 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.496 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:48.502 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.507 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.597 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:48.531 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.537 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.543 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.681 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.792 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.795 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.797 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.802 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:48.852 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:48.856 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.920 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:48.990 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:50.768 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 02:50:50.802 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 02:50:50.851 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:51.087 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:51.090 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:51.093 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:51.199 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:51.214 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:51.217 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:52.940 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:52.970 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.005 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:53.130 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.163 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.451 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:53.482 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:53.485 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.486 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.490 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:50:53.496 AM [info]: Validation Error: Entity Not Found
+2023-09-10 02:50:53.499 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.501 AM [info]: Validation Error: Invalid ID
+2023-09-10 02:50:53.517 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 02:53:12.446 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 02:55:24.753 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:01:22.591 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:01:27.638 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:10:06.674 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:10:25.832 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:17:21.875 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:23:27.970 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:23:36.267 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.298 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.305 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.316 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.343 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.394 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.399 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.404 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.419 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.468 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.481 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.479 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.484 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.517 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.504 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.528 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.537 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.558 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.602 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.610 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.614 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.628 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.644 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.649 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.658 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.684 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.805 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:23:36.880 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:23:36.965 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:36.982 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:36.990 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:36.999 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.141 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.190 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.196 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.260 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.263 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.284 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:37.288 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.290 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.297 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:37.327 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:37.330 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.333 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.346 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:23:37.359 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:23:37.365 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.371 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:23:37.383 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:40.399 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:40.450 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:40.469 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.487 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.545 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.613 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:40.626 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.633 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.648 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:40.664 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:40.669 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.674 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.731 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:40.784 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:40.808 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:40.818 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.834 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.874 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.959 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:40.970 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:40.977 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:41.001 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:41.030 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:41.036 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:41.052 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:41.085 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:41.940 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:24:41.967 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:24:41.997 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:42.008 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:42.017 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.022 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.113 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.144 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.153 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.246 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.250 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.274 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:42.281 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.285 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.297 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:42.339 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:42.345 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.348 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.355 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:24:42.363 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:24:42.367 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.370 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:24:42.376 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:20.776 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:20.815 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:20.833 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:20.843 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:20.884 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:20.888 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:20.928 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:20.945 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:20.957 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.062 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:21.029 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.096 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.150 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.206 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:21.215 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:21.238 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:21.255 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.271 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.231 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.248 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.271 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:21.300 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:21.308 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:26:21.323 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.334 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:26:21.373 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:26:47.541 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:26:48.771 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:27:40.108 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:48.930 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:48.946 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:48.954 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:48.958 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:48.984 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.020 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:49.025 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.028 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.039 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:49.053 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:49.059 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.062 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.077 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:49.215 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:49.233 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:49.239 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.243 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.258 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.298 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:49.304 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.309 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.343 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:49.365 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:49.374 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.379 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:49.391 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:54.528 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:27:54.542 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:27:54.561 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:54.565 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:54.567 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.569 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.601 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.613 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.618 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.660 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.662 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.679 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:54.680 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.683 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.687 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:54.712 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:54.717 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.720 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.726 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:27:54.731 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:27:54.736 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.739 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:27:54.745 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.328 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.349 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.356 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.362 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.378 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.412 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.417 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.421 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.434 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.452 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.461 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.465 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.475 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.501 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.525 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.529 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.533 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.553 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.591 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.596 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.598 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.604 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.616 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.620 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.625 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.632 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.762 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:32:34.776 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:32:34.794 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.800 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.802 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.804 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.835 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.852 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.855 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.903 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.905 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.926 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.930 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.934 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.948 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:34.986 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:34.991 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.993 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:34.999 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:32:35.006 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:32:35.013 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:35.016 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:32:35.031 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:30.805 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:30.820 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:30.826 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.833 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.848 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.874 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:30.877 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.879 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.886 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:30.895 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:30.900 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.903 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:30.910 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:31.218 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:31.239 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:31.245 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.253 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.275 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.370 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:31.376 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.382 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.418 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:31.506 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:31.513 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.526 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:31.556 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:32.234 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:33:32.255 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:33:32.285 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:32.296 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:32.304 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.309 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.424 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.532 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.546 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.693 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.701 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.751 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:32.758 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.763 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.775 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:32.852 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:32.856 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.858 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.863 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:33:32.870 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:33:32.875 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.878 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:33:32.887 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:22.901 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:22.949 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:22.961 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:22.975 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.026 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.062 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:23.098 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:23.106 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:23.115 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.128 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.109 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.117 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.136 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:23.162 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.159 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:23.164 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.170 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.185 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:23.236 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:23.248 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.254 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.276 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:23.298 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:23.303 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.313 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:23.331 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:24.378 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:34:24.419 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:34:24.474 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:24.489 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:24.497 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.505 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.605 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.645 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.649 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.732 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.738 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.772 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:24.780 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.785 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.798 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:24.871 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:24.876 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.880 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.891 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:34:24.904 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:34:24.910 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.914 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:34:24.926 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:22.191 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:35:38.810 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:38.826 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:38.832 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.837 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.853 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.882 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:38.888 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.892 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.911 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:38.926 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:38.935 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.940 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:38.954 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:38.997 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.024 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.031 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.038 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.067 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.102 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.106 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.109 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.118 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.128 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.133 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.138 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.148 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.322 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:35:39.343 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:35:39.366 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.371 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.373 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.376 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.425 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.441 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.444 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.490 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.493 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.509 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.512 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.513 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.519 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.551 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.555 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.557 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.564 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:35:39.570 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:35:39.573 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.575 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:35:39.580 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:25.270 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:37:40.600 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:40.622 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:40.631 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.640 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.669 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.743 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:40.749 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.759 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.780 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:40.808 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:40.820 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.833 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:40.852 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:40.954 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:40.985 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:40.991 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.005 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.061 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.112 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:41.120 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.127 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.140 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:41.163 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:41.172 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.181 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.193 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:41.582 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:37:41.614 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:37:41.664 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:41.673 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:41.679 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.683 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.774 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.801 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.806 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.867 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.871 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.901 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:41.905 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.907 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.919 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:41.981 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:41.985 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.989 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:41.998 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:37:42.015 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:37:42.022 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:42.027 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:37:42.043 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.294 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.316 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.332 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.341 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.376 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.435 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.443 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.446 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.459 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.473 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.481 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.487 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.502 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.515 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.534 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.545 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.553 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.589 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.662 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.669 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.675 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.687 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:37.706 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:37.714 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.720 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:37.748 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:38.118 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:38:38.143 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:38:38.184 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:38.195 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:38.200 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.204 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.264 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.295 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.299 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.347 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.351 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.375 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:38.378 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.380 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.385 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:38.411 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:38.414 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.416 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.422 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:38:38.428 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:38:38.432 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.433 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:38:38.440 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:29.707 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:29.730 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.738 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.753 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.786 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.850 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:29.866 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.872 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.875 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.890 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:29.902 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.913 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.880 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.891 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.898 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.908 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.913 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.929 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:29.923 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.958 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.928 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:29.987 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.991 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:29.993 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.000 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.016 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:30.033 AM [info]: Validation Error: Entity Not Updated
+2023-09-10 03:48:30.028 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:30.034 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.038 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.048 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:30.038 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.089 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.373 AM [info]: Validation Error: The provided listID is not exists
+2023-09-10 03:48:30.402 AM [info]: Validation Error: The provided tagID is not exists
+2023-09-10 03:48:30.443 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:30.464 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:30.469 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.475 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.569 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.602 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.606 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.705 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.709 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.754 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:30.759 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.764 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.776 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:30.823 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:30.826 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.829 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.837 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:30.848 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:30.855 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.858 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:30.867 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:32.455 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:32.492 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:32.497 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.504 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.531 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.595 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:32.603 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.607 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.619 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:48:32.629 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:48:32.637 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.642 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:48:32.653 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:50:28.854 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:50:28.868 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:50:28.937 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:50:28.970 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:50:29.019 AM [info]: Validation Error: Entity Not Updated
+2023-09-10 03:50:29.028 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:50:29.078 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:51:57.965 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:51:57.988 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:51:58.101 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:51:58.188 AM [info]: Validation Error: Entity Not Found
+2023-09-10 03:51:58.282 AM [info]: Validation Error: Entity Not Updated
+2023-09-10 03:51:58.297 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:51:58.387 AM [info]: Validation Error: Invalid ID
+2023-09-10 03:52:43.535 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:55:50.378 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:56:29.185 AM [info]: INTERNAL_SERVER_ERROR: Internal Server Error
+2023-09-10 03:58:21.392 AM [info]: Authinticatio/Authorization Error: Access Denied
+2023-09-10 03:58:33.473 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 03:58:33.474 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 03:58:36.921 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 03:58:36.922 AM [info]: Authinticatio/Authorization Error: User Is Not Logged In
+2023-09-10 04:17:44.365 AM [info]: Validation Error: Entity Not Found

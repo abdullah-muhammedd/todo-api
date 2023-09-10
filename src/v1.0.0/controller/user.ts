@@ -3,12 +3,19 @@ import UserServices from '../services/user';
 import * as userValidation from '../utility/_validation/user';
 import * as passwordEncryption from '../utility/_encryption/password';
 import ValidationError from '../utility/_error/ValidationError';
-import { BAD_REQUEST, UNPROCESSABLE_ENTITY } from '../utility/_types/statusCodes';
+import {
+    BAD_REQUEST,
+    UNPROCESSABLE_ENTITY
+} from '../utility/_types/statusCodes';
 
 /**
  *  Retrieves a user's information.
  */
-export async function getUser(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+export async function getUser(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response | void> {
     try {
         const id = res.locals.userId;
         const user = await UserServices.find(id);
@@ -24,10 +31,15 @@ export async function getUser(req: Request, res: Response, next: NextFunction): 
 /**
  *  Updates a user's data.
  */
-export async function patchUserData(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+export async function patchUserData(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response | void> {
     try {
         const body = req.body;
-        const { error, value } = userValidation.updatingUserSchema.validate(body);
+        const { error, value } =
+            userValidation.updatingUserSchema.validate(body);
         if (error) {
             let statusCode = UNPROCESSABLE_ENTITY;
             if (error.details[0].type === 'any.required') {
@@ -42,16 +54,23 @@ export async function patchUserData(req: Request, res: Response, next: NextFunct
             message: 'User Updated Successfully',
             modifiedUsers: modifiedCount
         });
-    } catch (error) {}
+    } catch (error) {
+        return next(error);
+    }
 }
 
 /**
  *  Updates a user's password.
  */
-export async function patchUserPassword(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+export async function patchUserPassword(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response | void> {
     try {
         const body = req.body;
-        const { error, value } = userValidation.updatingPasswordSchema.validate(body);
+        const { error, value } =
+            userValidation.updatingPasswordSchema.validate(body);
         if (error) {
             let statusCode = UNPROCESSABLE_ENTITY;
             if (error.details[0].type === 'any.required') {
@@ -61,7 +80,8 @@ export async function patchUserPassword(req: Request, res: Response, next: NextF
         }
 
         const password = body.password;
-        const hashedPassword = await passwordEncryption.getEncryptedPassword(password);
+        const hashedPassword =
+            await passwordEncryption.getEncryptedPassword(password);
         value.password = hashedPassword;
 
         const id = res.locals.userId;
@@ -71,5 +91,28 @@ export async function patchUserPassword(req: Request, res: Response, next: NextF
             message: 'User Updated Successfully',
             modifiedUsers: modifiedCount
         });
-    } catch (error) {}
+    } catch (error) {
+        return next(error);
+    }
+}
+
+/**
+ *  Updates a user's password.
+ */
+export async function deleteUser(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response | void> {
+    try {
+        const id = res.locals.userId;
+        const deletedCount = await UserServices.remove(id);
+
+        return res.status(200).json({
+            message: 'User deleted Successfully',
+            modifiedUsers: deletedCount
+        });
+    } catch (error) {
+        return next(error);
+    }
 }

@@ -1,6 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import 'dotenv/config';
-
+import Task from './task';
+import Tag from './tag';
+import List from './list';
+import StickyNote from './stickyNote';
 export interface IUser extends Document {
     userName: string;
     email: string;
@@ -21,7 +24,9 @@ const userSchema = new Schema<IUser>(
             type: String,
             validate: {
                 validator: function (value: string): boolean | never {
-                    const regex: RegExp = new RegExp(process.env.MAIL_VALIDATION_REGEX as string);
+                    const regex: RegExp = new RegExp(
+                        process.env.MAIL_VALIDATION_REGEX as string
+                    );
                     if (!regex.test(value)) {
                         throw new Error('Email Is Not Valid');
                     }
@@ -46,6 +51,20 @@ const userSchema = new Schema<IUser>(
     },
     { timestamps: true }
 );
+// Define a pre-deleteOne hook to delete user associated entites
+userSchema.pre('deleteOne', async function (next) {
+    const user = this as any;
+
+    await Task.deleteMany({ userID: user._conditions._id });
+
+    await List.deleteMany({ userID: user._conditions._id });
+
+    await Tag.deleteMany({ userID: user._conditions._id });
+
+    await StickyNote.deleteMany({ userID: user._conditions._id });
+
+    next();
+});
 const User = mongoose.model<IUser>('User', userSchema);
 
 export default User;

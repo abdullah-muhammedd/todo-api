@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Types } from 'mongoose';
+import mongoose, { Schema, Document, Types, UpdateQuery } from 'mongoose';
 import List from './list';
 import Tag from './tag';
 import ValidationError from '../utility/_error/ValidationError';
@@ -94,6 +94,40 @@ taskSchema.pre('save', async function (next) {
 taskSchema.pre('save', async function (next) {
     if (this.isModified('tagID')) {
         const tagExists = await Tag.exists({ _id: this.tagID });
+        if (!tagExists) {
+            throw new ValidationError(
+                'The provided tagID is not exists',
+                BAD_REQUEST
+            );
+        }
+    }
+    next();
+});
+
+// Define a pre-updateOne hook to validate the listID
+taskSchema.pre('updateOne', async function (next) {
+    const update = this.getUpdate() as UpdateQuery<any>;
+
+    const listID = update?.listID as string | undefined;
+    if (listID) {
+        const listExists = await List.exists({ _id: listID });
+        if (!listExists) {
+            throw new ValidationError(
+                'The provided listID is not exists',
+                BAD_REQUEST
+            );
+        }
+    }
+    next();
+});
+
+// Define a pre-updateOne hook to validate the tagID
+taskSchema.pre('updateOne', async function (next) {
+    const update = this.getUpdate() as UpdateQuery<any>;
+
+    const tagID = update?.tagID as string | undefined;
+    if (tagID) {
+        const tagExists = await Tag.exists({ _id: tagID });
         if (!tagExists) {
             throw new ValidationError(
                 'The provided tagID is not exists',

@@ -92,12 +92,14 @@ export default class TaskServices {
     /**
      * Add a new task to the database.
      *
-     * @param {Object} taskData - The task data to add.
+     * @param {any} taskData - The task data to add.
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the user ID is invalid.
      * @returns {Promise<void>} A promise that resolves when the task is added.
      */
     static async add(taskData: any): Promise<void | never> {
         ValidationHelper.isValidId(taskData.userID);
+        if (taskData.listID) ValidationHelper.isValidId(taskData.listID);
+        if (taskData.tagID) ValidationHelper.isValidId(taskData.tagID);
         await Task.create(taskData);
     }
 
@@ -105,14 +107,14 @@ export default class TaskServices {
      * Update a task in the database.
      *
      * @param {string} id - The ID of the task to update.
-     * @param {Object} taskData - The updated task data.
+     * @param {any} taskData - The updated task data.
      * @param {string} userID - The Owner ID.
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the task does not exist.
      * @returns {Promise<number>} A promise that resolves to the number of modified tasks (0 or 1).
      */
     static async update(
         id: string,
-        taskData: object,
+        taskData: any,
         userID: string
     ): Promise<number | never> {
         ValidationHelper.isValidId(userID);
@@ -121,6 +123,9 @@ export default class TaskServices {
         const result = await Task.findById(id).lean();
         ValidationHelper.isEntityExist(result);
         AuthorizationChecker.isOperationAuthorized(userID, result);
+
+        if (taskData.listID) ValidationHelper.isValidId(taskData.listID);
+        if (taskData.tagID) ValidationHelper.isValidId(taskData.tagID);
 
         const acknowledgment = await Task.updateOne({ _id: id }, taskData);
         EntityUpdater.isEntityUpdated(acknowledgment);

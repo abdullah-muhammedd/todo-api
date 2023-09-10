@@ -49,6 +49,24 @@ router.patch('/users', isAuthenticated, userController.patchUserData);
  * @throws {AuthError} Throws an `AuthError` if the user is not authenticated.
  * @returns {void}
  */
-router.patch('/users/password-reset', isAuthenticated, userController.patchUserPassword);
+router.patch(
+    '/users/password-reset',
+    isAuthenticated,
+    userController.patchUserPassword
+);
+/**
+ * ~ Route for deleting user.
+ *
+ * @name delete /users
+ * @function
+ * @memberof module:routes/user
+ * @inner
+ * @param {string} path - Express route path.
+ * @param {Function[]} middleware - Middleware functions for the route.
+ * @param {Function} handler - Request handler function for the route.
+ * @throws {AuthError} Throws an `AuthError` if the user is not authenticated.
+ * @returns {void}
+ */
+router.delete('/users', isAuthenticated, userController.deleteUser);
 
 export default router;
