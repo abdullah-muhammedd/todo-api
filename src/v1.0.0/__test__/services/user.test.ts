@@ -28,10 +28,9 @@ describe('User operations scenarios in the database', () => {
             const nothing = await UserServices.add(userObject);
             expect(nothing).to.equal(undefined);
         });
-        it('should failt to create with ivalid email', async () => {
+        it('should fail to create with ivalid email', async () => {
             try {
                 const userObject = {
-                    _id: userID,
                     userName: 'userName123',
                     email: 'emailgmail.com',
                     password: 'Aa12131415',
@@ -68,7 +67,7 @@ describe('User operations scenarios in the database', () => {
 
         it('should fail to create a new user with the same email and throw a unique index error on email', async () => {
             const userObject = {
-                userName: 'anotheruserName123',
+                userName: 'userName',
                 email: 'email@gmail.com',
                 password: 'Aa12131415',
                 confirmPassword: 'Aa12131415',
