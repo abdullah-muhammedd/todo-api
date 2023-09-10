@@ -33,8 +33,6 @@ The primary goal of this project is to enhance my skills in backend development,
 
 # Project Structure
 
-Explain the directory structure of your project:
-
 -   `eslint`, `prettier`, `tsconfig`, `nodemon`, `jest` - Configuration files for linting, formatting, TypeScript, nodemon, and Jest.
 -   `src/`
     -   `app.js` - Entry point of the application.
