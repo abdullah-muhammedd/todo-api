@@ -18,15 +18,16 @@ app.use(cookieParser(process.env.SIGNED_COOKIES_SECRET));
 app.use(helmet());
 // Handling CORS
 app.use((req: Request, res: Response, next: NextFunction): Response | void => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     if (req.method === 'OPTIONS') {
-        return res.send();
+        res.status(204).end();
+    } else {
+        next();
     }
-
-    return next();
 });
 
 app.use('/api/v1', authRouter);

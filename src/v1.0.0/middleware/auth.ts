@@ -58,6 +58,10 @@ function handleAccessTokenExpiry(
             maxAge: 24 * 60 * 60 * 1000,
             signed: true
         });
+        res.cookie('tokens_existed', 'true', {
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+            sameSite: 'none'
+        });
         res.locals.userId = userId;
 
         return next();

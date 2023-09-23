@@ -7,7 +7,7 @@
 
 import { Router } from 'express';
 import * as authController from '../controller/auth';
-import { isNotAuthenticated } from '../middleware/auth';
+import { isAuthenticated, isNotAuthenticated } from '../middleware/auth';
 
 const router = Router();
 
@@ -40,5 +40,6 @@ router.post('/signup', isNotAuthenticated, authController.postSignUp);
  * @returns {void}
  */
 router.post('/login', isNotAuthenticated, authController.postLogin);
+router.get('/logout', isAuthenticated, authController.getLogout);
 
 export default router;
