@@ -39,6 +39,10 @@ describe('Notes operations scenarios in the database', () => {
             const nothing = await StickyServices.add(noteObject);
             expect(nothing).to.equal(undefined);
         });
+        it('should count notes and get one as a return value', async () => {
+            const count = await StickyServices.count(userID);
+            expect(count).to.equal(1);
+        });
     });
     describe('Finding Note', () => {
         it('should get a note by id', async () => {

@@ -38,6 +38,10 @@ describe('Tags operations scenarios in the database', () => {
             const nothing = await TagServices.add(tagObject);
             expect(nothing).to.equal(undefined);
         });
+        it('should count tags and get one as a return value', async () => {
+            const count = await TagServices.count(userID);
+            expect(count).to.equal(1);
+        });
     });
 
     describe('Finding Tag', () => {

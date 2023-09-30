@@ -61,6 +61,15 @@ export default class TaskServices {
             .limit(perPage)
             .select({ userID: 0 })
             .lean();
+
+        result.forEach((task) => {
+            if (task.subTasks && task.subTasks.length > 0) {
+                task.subTasksCount = task.subTasks.length;
+            } else {
+                task.subTasksCount = 0; // Set to 0 if there are no subTasks
+            }
+        });
+
         ValidationHelper.isEntityExist(result);
         return result as [ITask];
     }
@@ -206,6 +215,15 @@ export default class TaskServices {
             .limit(perPage)
             .select({ userID: 0 })
             .lean();
+
+        result.forEach((task) => {
+            if (task.subTasks && task.subTasks.length > 0) {
+                task.subTasksCount = task.subTasks.length;
+            } else {
+                task.subTasksCount = 0;
+            }
+        });
+
         ValidationHelper.isEntityExist(result);
         return result as [ITask];
     }
@@ -237,7 +255,22 @@ export default class TaskServices {
             .limit(perPage)
             .select({ userID: 0 })
             .lean();
+
+        result.forEach((task) => {
+            if (task.subTasks && task.subTasks.length > 0) {
+                task.subTasksCount = task.subTasks.length;
+            } else {
+                task.subTasksCount = 0;
+            }
+        });
         ValidationHelper.isEntityExist(result);
         return result as [ITask];
+    }
+
+    // Get the count of the tasks
+    static async count(userID: string): Promise<number | never> {
+        ValidationHelper.isValidId(userID);
+        const count = await Task.count({ userID });
+        return count;
     }
 }

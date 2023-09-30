@@ -105,7 +105,21 @@ export async function deleteList(
         return next(error);
     }
 }
-
+export async function countLists(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
+    try {
+        const userID = res.locals.userId;
+        const count = await ListServices.count(userID);
+        return res
+            .status(200)
+            .json({ message: 'Operation Processed Successfully', count });
+    } catch (error) {
+        return next(error);
+    }
+}
 // helpers
 function validate(body: any) {
     const { error, value } = listValidationSchema.validate(body);

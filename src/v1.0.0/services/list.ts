@@ -1,5 +1,10 @@
 import List, { IList } from '../model/list';
-import { ValidationHelper, EntityUpdater, EntityDeleter, AuthorizationChecker } from '../utility/_validation/database';
+import {
+    ValidationHelper,
+    EntityUpdater,
+    EntityDeleter,
+    AuthorizationChecker
+} from '../utility/_validation/database';
 
 /**
  * Service class for handling list-related operations.
@@ -14,7 +19,11 @@ export default class ListServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no lists or there's an issue with pagination.
      * @returns {Promise<[IList]>} A promise that resolves to an array of lists.
      */
-    static async getAll(perPage: number, page: number, userID: string): Promise<[IList] | never> {
+    static async getAll(
+        perPage: number,
+        page: number,
+        userID: string
+    ): Promise<[IList] | never> {
         ValidationHelper.isValidId(userID);
         const result = await List.find({ userID })
             .skip(perPage * (page - 1))
@@ -67,7 +76,11 @@ export default class ListServices {
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the list does not exist.
      * @returns {Promise<number>} A promise that resolves to the number of modified lists (0 or 1).
      */
-    static async update(id: string, listData: object, userID: string): Promise<number | never> {
+    static async update(
+        id: string,
+        listData: object,
+        userID: string
+    ): Promise<number | never> {
         ValidationHelper.isValidId(userID);
         ValidationHelper.isValidId(id);
 
@@ -99,5 +112,12 @@ export default class ListServices {
         const acknowledgment = await List.deleteOne({ _id: id });
         EntityDeleter.isEntityDeleted(acknowledgment);
         return acknowledgment.deletedCount;
+    }
+
+    // Get the count of the lists
+    static async count(userID: string): Promise<number | never> {
+        ValidationHelper.isValidId(userID);
+        const count = await List.count({ userID });
+        return count;
     }
 }

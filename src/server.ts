@@ -6,7 +6,7 @@ mongoose
     .connect(process.env.DB_CONNECTION_STRING as string)
     .then(() => {
         app.listen(process.env.PORT, () => {
-            console.log('Server is up and listening on 3000');
+            console.log(`Server is up and listening on ${process.env.PORT}`);
         });
     })
     .catch((err) => {

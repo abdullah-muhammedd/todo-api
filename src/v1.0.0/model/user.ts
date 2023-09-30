@@ -24,9 +24,8 @@ const userSchema = new Schema<IUser>(
             type: String,
             validate: {
                 validator: function (value: string): boolean | never {
-                    const regex: RegExp = new RegExp(
-                        process.env.MAIL_VALIDATION_REGEX as string
-                    );
+                    const regex: RegExp =
+                        /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z]{2,})+$/;
                     if (!regex.test(value)) {
                         throw new Error('Email Is Not Valid');
                     }

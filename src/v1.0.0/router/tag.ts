@@ -12,6 +12,13 @@ const router = Router();
 router.get('/tags', isAuthenticated, tagController.getTags);
 
 /**
+ * @route GET /tags/count
+ * @description get number of tags
+ * @access Private (requires authentication)
+ */
+router.get('/tags/count', isAuthenticated, tagController.countTags);
+
+/**
  * @route GET /tags/:id
  * @description Get a tag by ID.
  * @param {string} id - The ID of the tag.

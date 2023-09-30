@@ -165,6 +165,11 @@ describe('Tasks operations scenarios in the database', () => {
                 );
             }
         });
+
+        it('should count tasks and get 3 as a return value', async () => {
+            const count = await TaskServices.count(userID);
+            expect(count).to.equal(3);
+        });
     });
 
     describe('Finding Task', () => {
@@ -209,7 +214,7 @@ describe('Tasks operations scenarios in the database', () => {
     });
 
     describe('Getting All Tasks', () => {
-        it('should get an array of all notes for the user with length 2', async () => {
+        it('should get an array of all tasks for the user with length 2', async () => {
             const queryParams: any = {
                 done: 'false',
                 dueDateFrom: '2023-09-10',
@@ -219,7 +224,7 @@ describe('Tasks operations scenarios in the database', () => {
             const tasks = await TaskServices.getAll(10, 1, queryParams);
             expect(tasks).to.have.lengthOf(2);
         });
-        it('should get an array of all notes for the user with only dueDateFrom Specified', async () => {
+        it('should get an array of all tasks for the user with only dueDateFrom Specified', async () => {
             const queryParams: any = {
                 done: 'false',
                 dueDateFrom: '2023-09-10',
@@ -229,7 +234,7 @@ describe('Tasks operations scenarios in the database', () => {
             const tasks = await TaskServices.getAll(10, 1, queryParams);
             expect(tasks).to.have.lengthOf(2);
         });
-        it('should get an array of all notes for the user with only dueDateTo Specified', async () => {
+        it('should get an array of all tasks for the user with only dueDateTo Specified', async () => {
             const queryParams: any = {
                 done: 'false',
                 dueDateFrom: null,
@@ -239,7 +244,7 @@ describe('Tasks operations scenarios in the database', () => {
             const tasks = await TaskServices.getAll(10, 1, queryParams);
             expect(tasks).to.have.lengthOf(2);
         });
-        it('should fail to get an array of all notes for the user with an invalid id', async () => {
+        it('should fail to get an array of all tasks for the user with an invalid id', async () => {
             try {
                 const queryParams: any = {
                     done: 'false',

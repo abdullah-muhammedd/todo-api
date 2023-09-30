@@ -75,9 +75,6 @@ Before running the app you need to configure the environment variables, the need
 # Create a .env file and configure the following variables
 PORT= 3000
 
-MAIL_VALIDATION_REGEX= ^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$
-PASSWORD_VALIDATION_REGEX= ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
-
 DB_CONNECTION_STRING= "mongodb://localhost:27017/todo-app"
 TESTING_DB_CONNECTION_STRING= "mongodb://localhost:27017/todo-app-testing"
 

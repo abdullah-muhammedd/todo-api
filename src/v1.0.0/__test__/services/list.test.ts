@@ -39,6 +39,11 @@ describe('Lists operations scenarios in the database', () => {
             const nothing = await ListServices.add(listObject);
             expect(nothing).to.equal(undefined);
         });
+
+        it('should count lists and get one as a return value', async () => {
+            const count = await ListServices.count(userID);
+            expect(count).to.equal(1);
+        });
     });
 
     describe('Finding List', () => {

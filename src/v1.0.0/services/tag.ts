@@ -1,5 +1,10 @@
 import Tag, { ITag } from '../model/tag';
-import { ValidationHelper, EntityUpdater, EntityDeleter, AuthorizationChecker } from '../utility/_validation/database';
+import {
+    ValidationHelper,
+    EntityUpdater,
+    EntityDeleter,
+    AuthorizationChecker
+} from '../utility/_validation/database';
 
 /**
  * Service class for handling tag-related operations.
@@ -14,7 +19,11 @@ export default class TagServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no tags or there's an issue with pagination.
      * @returns {Promise<[ITag]>} A promise that resolves to an array of tags.
      */
-    static async getAll(perPage: number, page: number, userID: string): Promise<[ITag] | never> {
+    static async getAll(
+        perPage: number,
+        page: number,
+        userID: string
+    ): Promise<[ITag] | never> {
         ValidationHelper.isValidId(userID);
         const result = await Tag.find({ userID })
             .skip(perPage * (page - 1))
@@ -67,7 +76,11 @@ export default class TagServices {
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the tag does not exist.
      * @returns {Promise<number>} A promise that resolves to the number of modified tags (0 or 1).
      */
-    static async update(id: string, tagData: Object, userID: string): Promise<number | never> {
+    static async update(
+        id: string,
+        tagData: Object,
+        userID: string
+    ): Promise<number | never> {
         ValidationHelper.isValidId(userID);
         ValidationHelper.isValidId(id);
 
@@ -100,5 +113,12 @@ export default class TagServices {
         const acknowledgment = await Tag.deleteOne({ _id: id });
         EntityDeleter.isEntityDeleted(acknowledgment);
         return acknowledgment.deletedCount;
+    }
+
+    // Get the count of the tags
+    static async count(userID: string): Promise<number | never> {
+        ValidationHelper.isValidId(userID);
+        const count = await Tag.count({ userID });
+        return count;
     }
 }

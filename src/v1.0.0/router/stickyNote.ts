@@ -12,6 +12,13 @@ const router = Router();
 router.get('/notes', isAuthenticated, stickyController.getStickyNotes);
 
 /**
+ * @route GET /notes/count
+ * @description get number of notes
+ * @access Private (requires authentication)
+ */
+router.get('/notes/count', isAuthenticated, stickyController.countNotes);
+
+/**
  * @route GET /notes/:id
  * @description Get a sticky note by ID.
  * @param {string} id - The ID of the sticky note.

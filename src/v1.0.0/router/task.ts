@@ -12,11 +12,19 @@ const router = Router();
 router.get('/tasks', isAuthenticated, taskController.getTasks);
 
 /**
+ * @route GET /tasks/count
+ * @description get number of tasks
+ * @access Private (requires authentication)
+ */
+router.get('/tasks/count', isAuthenticated, taskController.countTasks);
+
+/**
  * @route GET /tasks/:id
  * @description Get a task by ID.
  * @param {string} id - The ID of the task to retrieve.
  * @access Private (requires authentication)
  */
+
 router.get('/tasks/:id', isAuthenticated, taskController.getTask);
 
 /**
@@ -25,7 +33,11 @@ router.get('/tasks/:id', isAuthenticated, taskController.getTask);
  * @param {string} listId - The ID of the list to filter tasks by.
  * @access Private (requires authentication)
  */
-router.get('/tasks/lists/:listId', isAuthenticated, taskController.getTasksByList);
+router.get(
+    '/tasks/lists/:listId',
+    isAuthenticated,
+    taskController.getTasksByList
+);
 
 /**
  * @route GET /tasks/tags/:tagId
@@ -56,7 +68,11 @@ router.patch('/tasks/:id', isAuthenticated, taskController.patchTask);
  * @param {string} id - The ID of the task to toggle.
  * @access Private (requires authentication)
  */
-router.patch('/tasks/:id/toggle-done', isAuthenticated, taskController.patchToggleDone);
+router.patch(
+    '/tasks/:id/toggle-done',
+    isAuthenticated,
+    taskController.patchToggleDone
+);
 
 /**
  * @route DELETE /tasks/:id

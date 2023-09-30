@@ -1,5 +1,10 @@
 import StickyNote, { IStickyNote } from '../model/stickyNote';
-import { ValidationHelper, EntityUpdater, EntityDeleter, AuthorizationChecker } from '../utility/_validation/database';
+import {
+    ValidationHelper,
+    EntityUpdater,
+    EntityDeleter,
+    AuthorizationChecker
+} from '../utility/_validation/database';
 
 /**
  * Service class for handling sticky note-related operations.
@@ -14,7 +19,11 @@ export default class StickyServices {
      * @throws {ValidationError} Throws a `ValidationError` if there are no sticky notes or there's an issue with pagination.
      * @returns {Promise<[IStickyNote]>} A promise that resolves to an array of sticky notes.
      */
-    static async getAll(perPage: number, page: number, userID: string): Promise<[IStickyNote] | never> {
+    static async getAll(
+        perPage: number,
+        page: number,
+        userID: string
+    ): Promise<[IStickyNote] | never> {
         ValidationHelper.isValidId(userID);
         const result = await StickyNote.find({ userID })
             .skip(perPage * (page - 1))
@@ -67,7 +76,11 @@ export default class StickyServices {
      * @throws {ValidationError} Throws a `ValidationError` if there's an issue with the data or the sticky note does not exist.
      * @returns {Promise<number>} A promise that resolves to the number of modified sticky notes (0 or 1).
      */
-    static async update(id: string, stickyNoteData: Object, userID: string): Promise<number | never> {
+    static async update(
+        id: string,
+        stickyNoteData: Object,
+        userID: string
+    ): Promise<number | never> {
         ValidationHelper.isValidId(userID);
         ValidationHelper.isValidId(id);
 
@@ -75,7 +88,10 @@ export default class StickyServices {
         ValidationHelper.isEntityExist(result);
         AuthorizationChecker.isOperationAuthorized(userID, result);
 
-        const acknowledgment = await StickyNote.updateOne({ _id: id }, stickyNoteData);
+        const acknowledgment = await StickyNote.updateOne(
+            { _id: id },
+            stickyNoteData
+        );
         EntityUpdater.isEntityUpdated(acknowledgment);
         return acknowledgment.modifiedCount;
     }
@@ -99,5 +115,12 @@ export default class StickyServices {
         const acknowledgment = await StickyNote.deleteOne({ _id: id });
         EntityDeleter.isEntityDeleted(acknowledgment);
         return acknowledgment.deletedCount;
+    }
+
+    // Get the count of the notes
+    static async count(userID: string): Promise<number | never> {
+        ValidationHelper.isValidId(userID);
+        const count = await StickyNote.count({ userID });
+        return count;
     }
 }

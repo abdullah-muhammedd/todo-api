@@ -12,6 +12,13 @@ const router = Router();
 router.get('/lists', isAuthenticated, listController.getLists);
 
 /**
+ * @route GET /lists/count
+ * @description get number of lists
+ * @access Private (requires authentication)
+ */
+router.get('/lists/count', isAuthenticated, listController.countLists);
+
+/**
  * @route GET /lists/:id
  * @description Get a list by ID.
  * @param {string} id - The ID of the list.
@@ -42,4 +49,5 @@ router.patch('/lists/:id', isAuthenticated, listController.patchList);
  */
 router.delete('/lists/:id', isAuthenticated, listController.deleteList);
 
+router.get('/lists/count');
 export default router;

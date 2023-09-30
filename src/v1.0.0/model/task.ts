@@ -28,6 +28,7 @@ export interface ITask extends Document {
             done?: boolean;
         }
     ];
+    subTasksCount?: number;
 }
 
 const taskSchema = new Schema<ITask>(

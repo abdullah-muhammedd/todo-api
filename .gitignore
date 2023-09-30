@@ -4,3 +4,4 @@ dist/
 coverage/
 .vscode/
 jest.config.js
+logs/
