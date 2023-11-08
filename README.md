@@ -131,9 +131,10 @@ npm test
 1. **Secure User Password Encryption (bcryptjs):** User passwords are securely hashed using bcryptjs, ensuring that sensitive user data remains protected.
 2. **Stateless Authentication Method:**
     - **User Login:** Users can log in with either their email or username along with their password.
-    - **Cookie-Based Tokens:** Upon successful login, the user is issued two cookies:
+    - **Cookie-Based Tokens:** Upon successful login, the user is issued three cookies:
         - A short-lived `access_token`
         - A long-lived `refresh_token`
+        - A `token_exists` cookie to allwo client to check the login status 
     - **Token Validation:** For each subsequent request, the `access_token` is validated to confirm the user's credentials.
     - **Token Expiry Handling:** If the `access_token` has expired, the system checks the validity of the `refresh_token`. If the `refresh_token` is valid, a new `access_token` is issued with the upcoming response.
     - **Double Layer Token Security:** Tokens cannot be generated outside of the server because the secrets of both the `access_token` and `refresh_token` are extremely hard to guess. Furthermore, these tokens are distinct from each other, enhancing security.
@@ -236,7 +237,7 @@ You've introduced three types of reusable error classes to maintain consistency 
 
 ### Log File Rotation:
 
--   You utilize the `winston-daily-rotated` file transport to manage log file rotation.
+-   utilize the `winston-daily-rotated` file transport to manage log file rotation.
 -   Log files are changed daily, which helps organize logs by date.
 -   Older log files, which are older than 14 days, are automatically deleted.
 -   This approach ensures that log files are well-maintained and that disk space is managed efficiently.
@@ -249,7 +250,7 @@ You've introduced three types of reusable error classes to maintain consistency 
 
 ### Handling Rejected Promises and Unhandled Exceptions:
 
--   You've configured `winston` to log rejected promises and unhandled exceptions to separate log files.
+-   Configured `winston` to log rejected promises and unhandled exceptions to separate log files.
 -   This practice helps in identifying and addressing issues that might otherwise go unnoticed.
 
 # Documentation
