@@ -18,7 +18,9 @@
 
 # Introduction
 
-Welcome to my TODO App Backend API training project! This project is a playground for me to learn and experiment with backend development, specifically focused on creating a robust and scalable API.
+Welcome to my TODO App Backend API training project! This project is a playground for me to learn and experiment with backend development, specifically focused on creating a robust and scalable API. 
+
+This API is used to develope ![todo-react-app](https://github.com/abdullah-muhammedd/todo-react-app.git) so that you can see it working
 
 # Purpose
 
