@@ -9,7 +9,7 @@
         "start": "node dist/server.js",
         "build": "tsc -w",
         "dev": "nodemon src/server.js",
-        "workflow": "conc \"npm run build\"  \"npm run dev\"",
+        "workflow": "conc \"npm run build\"  \"npm start\"",
         "format": "prettier --write '**/*.{ts,tsx,json}'",
         "debug": "node --inspect dist/server.js "
     },
@@ -32,6 +32,7 @@
         "winston-daily-rotate-file": "^4.7.1"
     },
     "devDependencies": {
+        "@babel/preset-typescript": "^7.23.2",
         "@jest/globals": "^29.6.4",
         "@types/bcryptjs": "^2.4.2",
         "@types/chai": "^4.3.5",
@@ -57,7 +58,7 @@
         "eslint-plugin-n": "^16.0.2",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-unused-imports": "^3.0.0",
-        "jest": "^29.6.2",
+        "jest": "^29.7.0",
         "prettier": "^3.0.2",
         "sinon": "^15.2.0",
         "ts-jest": "^29.1.1",
